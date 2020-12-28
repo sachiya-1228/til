@@ -1,1 +1,1616 @@
+・数値と計算、文字列との違い
 
+
+			「console.log("○○");」というコードを書くと、()の中の○○という文字がコンソールに出力されます。
+			console.log() は丸括弧 () 内に入力された文字をコンソールに出力します。
+								
+			数値は文字列と違いクォーテーションで囲みません。
+			console.log(5 + 2);は足し算の結果である7が出力されます。
+			一方、「5 + 2」にクォーテーションをつけると、文字列と解釈されそのまま出力されます。
+								
+								
+								console.log(20-8);					//結果：12
+
+								console.log("4+5");					//結果：4+5
+
+								console.log("ひつじ" + "仙人");		//結果：ひつじ仙人
+	
+
+・変数
+
+
+			変数は、データ（値）の入れ物（箱）です。
+			箱についている名前が「変数名」であり、箱の中に実際の値（文字列や数値など）が入っています。
+			プログラミングの「=」は「等しい」という意味ではなく、「右辺を左辺に代入する」という意味です。
+
+			変数は「let 変数名 = 値」として定義します。
+			「let」は「これから変数を定義します」という宣言で、その後ろに変数名を書き、値を代入します。
+								
+			変数の命名ルール
+			〇：英単語を用いる(number),2語以上の場合は大文字で区切る(oddNumber)
+			×：数字開始(1number)、ローマ字(bango)、日本語
+									
+																
+								let name = "にんじゃわんこ";
+
+								console.log(name);					//結果：にんじゃわんこ
+												
+								console.log(name);					//結果：name
+								
+																
+										            定数
+					
+																	      定数はletの代わりにconstを用いて定義します。
+																	      変数は1度代入した値を更新することができましたが、定数は値を更新することはできません。						
+									
+																	      定数のメリットは、「後から値を更新できない」ところにあります。
+																	      予期せぬ更新を防ぐことができ、より安全なコードを書くことができます。
+													
+													
+										            テンプレートリテラル
+										
+																	      これまで文字列や定数の連結には、「+」記号を用いてきました。
+																	      ES6では、それ以外の方法として「テンプレートリテラル」という連結方法があります。
+																      	テンプレートリテラルを用いると、文字列の中に定数（変数）を埋め込むことができます
+																	
+                                        文字列の中で「${定数}」とすることで、文字列の中に定数や変数を含めることができます。
+                                        この時、文字列全体をバッククォーテーション（`）で囲む必要があります。
+
+                                        ※シングルクォーテーション（'）とはまた違う
+
+                                        const age = 14;
+
+                                        console.log(`今は${age}歳です`);				//結果：14
+																	
+																	
+																	
+・条件分岐
+
+
+			条件式は、成り立つと「true」、成り立たなければ「false」という真偽値に置き換わります。
+
+								const age = 24;
+
+								console.log(age >=20);					//結果:true;
+								
+								if(age >= 20){
+									  console.log("私は20歳以上です");	//結果:私は20歳以上です
+								}
+
+
+									比較演算子
+																	
+																	比較演算子には、左と右の値が等しいかを調べるものもあります。 
+																	「a === b」はaとbが等しければtrue、等しくなければfalseになります。 「a !== b」はその逆です。 
+																	この記号は数値だけでなく、文字列同士の比較にも使えます。 
+									
+
+																						const password = "ninjawanko";
+
+
+																						if(password === "ninjawanko"){
+																						
+																							console.log("ログインに成功しました");
+																							
+																						}
+
+																						if(password !== "ninjawanko"){	
+																						
+																						  	console.log("パスワードが間違っています")
+																						  	;
+																						}
+																						
+																				
+									条件を追加する
+												
+																	ifとelseの間に「else if (条件)」を追加することで、if文に条件分岐を追加することができます。
+
+
+																						const age = 17;
+
+																						if (age >= 20) {
+																						  console.log("私は20歳以上です");					//age>=20がtrueの時の処理
+																						} 
+																						else if(age>=10){
+																						  console.log("私は20歳未満ですが、10歳以上です");	//age>=20がfalse and age>=10がtureの時の処理
+																						}
+																						 else {
+																						  console.log("私は10歳未満です");					//age>=20 and age>=10がfalseの時の処理
+																						}
+																						
+																				
+									switch文
+																		
+																	if文以外の条件分岐の方法として、switch文というものを学んでみましょう。
+																	switch文の中にcaseを追加することで処理を分けることができます。
+																	
+																	また、switch文ではbreakが非常に重要です。breakとはswitch文を終了する命令です。
+																	breakがないと、合致したcaseの処理を行った後、その次のcaseの処理も実行してしまいます。
+																	そのため、switch文を使うときにはbreakを忘れないように気をつけましょう。
+
+
+																						const rank =　"山田" ;
+
+																						switch (rank) {
+																						  case "山田":
+																						    console.log("金メダルです！");
+																						    break;
+
+																						  case "ケニー":
+																						    console.log("銀メダルです！");
+																						    break;
+																						  
+																						    case "斎藤":
+																						    console.log("銅メダルです！");
+																						    break;																						  
+																						}
+																						
+																						
+									switch文 - default
+                  
+																	switchの条件の値がcaseの値と一致したとき、その部分の処理が実行されます。
+																	caseのどれにも一致しなかった時、defaultのブロックが実行されます。
+																	defaultはif文のelseに似たようなものです。
+																	
+
+																						const rank =　"山田" ;
+
+																						switch (rank) {
+																						  case "山田":
+																						    console.log("金メダルです！");
+																						    break;
+
+																						  case "ケニー":
+																						    console.log("銀メダルです！");
+																						    break;
+																						  
+																						    case "斎藤":
+																						    console.log("銅メダルです！");
+																						    break;
+																						    
+																						    default:
+																						    console.log("メダルはありません");
+																						    break;																					  
+																						}
+																						
+																						
+
+・繰り返し処理
+
+
+									while文
+									
+																	while文は「条件式がtrueの間、{ }内の処理を繰り返す」ことができます。
+																	 {}の後にセミコロンは不要です。
+																	 
+																	 while文を用いる場合には、条件式の部分がいつかはfalseになり、繰り返し処理が終わる必要があることに注意してください。
+																	※無限ループになってしまうため
+																	
+																	例えば、number < 100が条件式として処理の最後にnuber += 1を入れてあげることで，101になったらループから抜けることができる。
+																	
+																																	
+																						let number = 1;
+																	
+																							while(number <=100){
+																							  console.log(number);
+																							  number += 1;
+																							}
+																							
+																							
+									for文の書き方
+									
+																	for文では「変数の定義」「条件式」「変数の更新」の3つを括弧の中に書きます。
+																	「number += 1」は「number ++」のように省略して書くことができます。
+																	また、引き算の場合にも、「number -= 1」を「number --」と省略することができます。
+																	
+																																		
+																						for( let number = 1; number <=100; number++){
+																						 	 console.log(number);
+																						}
+																	
+																	
+
+・配列
+
+			複数の値をまとめて管理するには、配列というものを用います。
+			配列は、[値1, 値2, 値3] のように作ります。配列に入っているそれぞれの値のことを要素と呼びます。
+			
+			配列も1つの値なので、定数に代入することができます。 
+			このとき、配列を代入する定数名は、慣習上複数形にすることが多いので覚えておきましょう。 
+			(fruit1,fruit2・・・があるなら、配列ではfruitsにする)
+			
+						
+						const animals = ["dog","cat","sheep"];
+
+						console.log(animals);
+			
+			
+			
+									インデックス番号
+																	
+																	配列の要素にはそれぞれインデックス番号という番号がついています。
+																	インデックス番号は、0から始まることに注意しましょう。（インデックス＝添え字）
+																	
+																																
+																							const animals = ["dog", "cat", "sheep"];
+
+																							console.log(animals[0]);
+
+																							console.log(animals[2]);
+																							
+									
+									
+									配列の要素数を取得
+									
+																	配列.lengthとすることで、配列の要素数を取得できます。
+																	配列の要素数が変わっても問題なく繰り返すことができるので便利です。
+																	
+																																	
+																							for (let i = 0; i < animals.length; i++) {
+																							  console.log(animals[i]);
+																							}
+																							
+																							
+																							
+・オブジェクト
+
+			オブジェクトは配列と同じく複数のデータをまとめて管理するのに用いられます。
+			配列は複数の値を並べて管理するのに対して、オブジェクトはそれぞれの値にプロパティと呼ばれる名前をつけて管理します。
+			配列は要素を[]で囲みましたが、オブジェクトは{}で囲みます。
+			
+			
+			
+						//配列
+						[値1,値2,値3]；
+						
+						//オブジェクト
+						｛プロパティ1：値1,プロパティ2,値3｝;
+						
+						
+						const character = {name:"にんじゃわんこ",age:14};
+
+						console.log(character);		//結果：{name:"にんじゃわんこ",age:14}
+
+
+
+									オブジェクトの値を取り出す
+									
+																	オブジェクトの値を取り出すには、対応するプロパティ名を用いて 、「オブジェクト.プロパティ名」のようにします。
+																																
+																
+									オブジェクトの値を更新する
+									
+																	「オブジェクト.プロパティ名 = 新しい値」とすることでオブジェクトの値を更新することができます。
+																	
+																																		
+																							const character = {name: "にんじゃわんこ", age: 14};
+
+																							console.log(character.name);						//結果：にんじゃわんこ
+
+																							character.age = 20;
+
+																							console.log(character);								//結果：{name: "にんじゃわんこ", age: 20}
+																		
+									
+									オブジェクトを要素に持つ配列
+									
+																	配列の要素には、文字列や数値だけでなく、オブジェクトも使うことができます。
+																	コードが横に長くなることを防ぐために、要素ごとに改行することがよくありますので、覚えておきましょう。
+																	
+																	配列の中のオブジェクトのプロパティの値を取り出すには、「配列[インデックス番号].プロパティ名」と書きます。
+																	
+																																		
+																							const characters = [
+																							  {name: "にんじゃわんこ", age: 14},
+																							  {name: "ひつじ仙人", age: 1000}
+																							];
+
+																							console.log(characters[0]);							//結果：{name: "にんじゃわんこ", age: 14}
+
+																							console.log(characters[1].name);					//結果：ひつじ仙人
+									
+																		
+									存在しない要素を取得する
+									
+																	配列の存在しないインデックス番号の要素や、オブジェクトの存在しないプロパティの要素を取得しようとすると、undefined と出力されます。
+																	undefined は特別な値で、値が定義されていないことを意味します。
+																	
+																	下記の配列[3]はageがないので、出力結果がundefinedになってしまう。
+																	だから、if文でundefinedのものとそれ以外で分岐させる。
+																	
+																																
+																							const characters = [
+																							  {name: "にんじゃわんこ", age: 14},
+																							  {name: "ひつじ仙人", age: 100},
+																							  {name: "ベイビーわんこ", age: 5},
+																							  {name: "とりずきん"}
+																							];
+
+																							for (let i = 0; i < characters.length; i++) {
+																							  console.log("--------------------");
+																							  
+																							  const character = characters[i];
+																							  
+																							  console.log(`名前は${character.name}です`);
+																							  
+																							  if(character.age === undefined){
+																							    console.log("年齢は秘密です");
+																							  }else{
+																							   console.log(`${character.age}歳です`);
+																							  }
+																	}
+																										
+									
+									複雑なオブジェクトを扱う
+									
+																	オブジェクトの値の部分には、文字列や数値だけでなく、オブジェクトを用いることができます。
+																	このようなオブジェクトは、「オブジェクト名.プロパティ.プロパティ」のように呼び出します。
+																	
+																	
+																	
+																							const cafe = {
+																							  name: "Progateカフェ",
+																							  businessHours: {
+																							    opening:"10:00(AM)",
+																							    closing:"8:00(PM)"
+																							  },
+																							};
+
+																							console.log("店名:" + cafe.name);
+
+																							console.log("営業時間:"+ cafe.businessHours.opening +"から" +cafe.businessHours.closing);
+																							
+																																																		
+																	また、オブジェクトの値には配列を用いることもできます。
+																	
+																							const cafe = {
+																							  name: "Progateカフェ",
+																							  businessHours: { 
+																							    opening: "10:00(AM)",
+																							    closing: "8:00(PM)"
+																							  },
+
+																							  menus:["コーヒー","紅茶","チョコレートケーキ"]
+																							  
+																							};
+
+																							console.log(`店名: ${cafe.name}`);
+																							console.log(`営業時間:${cafe.businessHours.opening}から${cafe.businessHours.closing}`);
+																							console.log(`----------------------------`);
+																							console.log("おすすめメニューはこちら");
+
+
+																							for(let i=0; i< cafe.menus.length; i++){
+																							  console.log(cafe.menus[i]);
+																							}
+																																												
+																							
+・関数
+
+			関数（かんすう）とは、「いくつかの処理をまとめたもの」です。
+					
+			
+									関数の定義
+									
+																	「function()」と書き、その後ろの中括弧「{ }」の中にまとめたい処理を書くことで関数を用意することができます。
+																	また、このように関数を用意することを「関数を定義する」と呼びます
+																	
+																																		
+									関数の呼び出し
+									
+																	関数を定義した際に使用した定数名を用いて、「定数名()」と書くことで関数の中の処理を実行できます。このことを「関数を呼び出す」と言います。
+																	
+																																		
+																								const greet = function() {
+																								  console.log("こんにちは！");
+																								  console.log("関数を学習していきましょう！");
+																								};
+
+
+																								greet();										//結果：こんにちは！
+																																						関数を学習していきましょう！
+																																						
+																																																																												
+									アロー関数
+									
+																	「function()」の部分を「() =>」としても、これまでと同じように関数を定義することができます。
+																	これはES6から導入された新しい書き方で、「function」を用いるよりシンプルに書くことができます。
+																	
+																																		
+																								const greet = ()=>{
+																								  console.log("こんにちは！");
+																								}
+
+																								greet();										//結果：こんにちは！
+
+
+									引数とは
+									
+																	引数（ひきすう）とは関数に与える追加情報のようなものです。
+																	関数を呼び出すときに一緒に値を渡すことで、関数の中でその値を利用することができます。
+																	
+																	「(引数名) =>」と括弧の中に引数名を書くことで引数を受け取ることができます。
+																	引数を受け取る関数を呼び出すには、「定数名(値)」と書きます。
+																	関数は指定した値を受け取り、その値は引数に代入されます。
+																	
+																	引数は関数内では定数や変数と同じように使用することができます。
+																	
+																																		
+																								const greet = (name) => {
+
+																								  console.log(`こんにちは、${name}さん`);
+																								  
+																								};
+
+																								greet("ひつじ仙人");							//結果：こんにちは、ひつじ仙人さん
+																								
+																																															
+									複数の引数を受け取る
+									
+																	関数は引数を複数受け取ることもできます。()の中に受け取る引数をコンマ(,)で区切って並べることで、複数の引数を指定することができます。
+																	引数は、左から順番に「第1引数、第2引数、...」と呼びます。
+																	複数の引数に値を渡して関数を呼び出すには、定義するときと同じように、コンマ(,)を用います。
+																	
+																																	
+																								const add = (number1,number2) => {
+																								  console.log(number1 + number2);
+																								  
+																								};
+
+																								add(5, 7);										//結果：12
+																								
+																																																
+									戻り値
+									
+																	呼び出し元で受け取る処理結果を戻り値（もどりち）と呼び、このことを「関数が戻り値を返す」と言います。
+																	
+																	関数の中でreturnを使うと、呼び出し元で値を受け取れるようになります。
+																	「return 値」と書くことで、関数はその値を戻り値として返します。
+																	return a　+ b;と指定したら、a + bの値が戻り値として呼び出し元に帰ります。
+																	
+																	呼び出した関数に戻り値がある場合、関数の呼び出し部分がそのまま戻り値に置きかわります。
+																	関数の呼び出し部分を定数に代入することもできます。
+																	
+																																		
+																								const half = (number) => {
+																								  return number / 2;
+																								};
+
+																								const result = half(130);
+
+																								console.log(`130の半分は${result}です`);		//結果：130の半分は65です
+																								
+																																															
+									様々な戻り値
+									
+																	戻り値も引数と同様に、様々な値を用いることができます。
+																	例えば、if文で使うような条件式をreturnすると、その条件式の結果として得られる真偽値（trueまたはfalse）を返すことができます。
+																	
+																																	
+																								const check = (number) => {
+																								  return number % 2 ===0;
+																								};
+
+																								console.log(check(6));							//結果：true
+																								console.log(check(7));							//結果：false
+																								
+																																															
+									returnによる処理の終了
+									
+																	returnは、戻り値を返すだけでなく、関数の処理を終了させる性質も持っています。
+																	よって、returnの後にある関数内の処理は実行されませんので注意しましょう。
+																	
+																																	
+																								const check = (number) => {
+																								  return number % 3 === 0;
+																								  
+																								};
+
+																								if (check(123)) {
+																								  console.log("3の倍数です");
+																								} else {
+																								  console.log("3の倍数ではありません");
+																								}													//結果：3の倍数です
+																								
+																																																
+									スコープ 
+									
+																	関数の引数や、関数内で定義した定数や変数は、その関数の中でしか使うことができません。
+																	このようなそれぞれの定数や変数の使用できる範囲のことをスコープと呼びます。(関数だけでなく、ifやwhileも同様)
+																	
+																	一方、関数の外で定義した定数や変数は、関数の中でも使うことができます。
+																	
+																	
+																						例１
+																						
+																								const name = "にんじゃわんこ";
+
+																								const introduce = (name) => {
+						
+																								   console.log(`わたしは${name}です`);
+																								  
+																								};
+
+																								introduce("ひつじ仙人");
+
+																								console.log(name);									//結果：わたしはひつじ仙人です
+																																							            にんじゃわんこ
+																																							
+																																																																										
+																						例２
+																																						
+																								const number1 = 103;
+																								const number2 = 72;
+																								const number3 = 189;
+
+																								const getMax = (a, b, c)=>{
+																								  let max  = a;										//関数内のmax変数
+																								  
+																								  if(max < b){
+																								    max = b;
+																								  }
+																								  
+																								  if(max < c){
+																								    max = c;
+																								  }
+																								  
+																								  return max;
+																								}
+
+																								 const max = getMax(number1, number2, number3);		//関数外のmax変数
+																								console.log(`最大値は${max}です`);					//最大値は189です
+																								
+																																																
+									オブジェクトと関数
+									
+																	オブジェクトの「値」の部分には、関数を用いることもできます。
+																	その関数を呼び出すには、「定数名.プロパティ名()」とします。プロパティ名の後ろの()を忘れないようにしましょう。
+																	
+																	
+																	
+																								const animal = {
+																								  name: "レオ",
+																								  age: 3,
+																								  greet: () => {
+																								    console.log("こんにちは");
+																								  }
+																								};
+
+																								console.log(animal.name);							//結果：レオ
+
+																								animal.greet();										//結果：こんにちは
+																								
+																																															
+																					
+・クラス
+
+			効率よくオブジェクトを作成していくための方法として、最初に「設計図」を用意する方法があります。
+			例えばユーザーのデータをいくつも作成する場合、最初に「ユーザーを生成するための設計図」を用意し、
+			その設計図をもとにユーザーのデータを生成していく、といったことができます。
+			
+			「設計図」のことをJavaScriptでは「クラス」と呼びます。
+			「class クラス名」とすることで新しくクラスを用意できます。
+			なお、クラス名は基本的に大文字から始めるようにしましょう。
+			
+						
+						class Animal {
+  
+						}
+						
+											
+									インスタンスの生成
+									
+																	オブジェクトを生成するための設計図を用意できたので、その設計図から実際にオブジェクトを生成してみましょう。
+																	クラスからオブジェクトを生成するには、図のように「new クラス名()」とします。
+																	クラスから生成したオブジェクトは特別にインスタンスと呼びます。
+                                  また、AnimalクラスのインスタンスをAnimalインスタンスと呼びます。
+																	
+																																		
+																								class Animal {
+																								
+																								}
+
+																								const animal = new Animal();
+																								console.log(animal);								//結果：Animal{}
+																	
+																	
+																	
+									コンストラクタ
+									
+																	クラスにはコンストラクタと呼ばれる機能が用意されています。
+																	コンストラクタはインスタンスを生成するときに実行したい処理や設定を追加するための機能です。
+																	まず、クラスの中括弧 { } 内に「constructor() { }」と記述します。
+																	
+																	コンストラクタの中には処理を記述することができます。
+																	ここに書いた処理はインスタンスが生成された直後に実行されます。
+																	大切なのは、インスタンスごとに毎回実行されるということです。
+																	
+																	
+																	
+																								class Animal {
+																								
+																								  constructor(){
+																								    console.log("インスタンスを生成しました");
+																								  }
+																								}
+
+																								const animal = new Animal();
+																								
+																								
+																								
+																				プロパティと値を追加する
+																				
+																												コンストラクタの中で、生成したインスタンスに関する情報を追加してみましょう。
+																												コンストラクタの中で「this.プロパティ = 値」とすることで、生成されたインスタンスにプロパティと値を追加することができます。
+																												
+																												インスタンスとはオブジェクトですので、コンストラクタの中で追加した値は、
+                                                        「インスタンス.プロパティ」とすることでクラスの外で使用できます。
+																												
+																																																								
+																																			class Animal {
+																																			  constructor() {
+																																			    this.name = "レオ";																																		    
+																																			    this.age = 3;
+																																			  }
+																																			}
+
+																																			const animal = new Animal();
+																																			console.log(`名前:${animal.name}`);
+																																			console.log(`年齢:${animal.age}`);
+																																			
+																																																										
+																				コンストラクタの引数
+																				
+																												コンストラクタでも引数を受け取ることが可能です。
+																												「constructor」の後の括弧「( )」内に引数名を記述することで、その引数をコンストラクタの処理内で使用できます。
+																												コンストラクタに引数として値を渡すには、「new クラス名()」の括弧「( )」内に値を追加します。
+																																																								
+																												
+																																			class Animal {
+																																			  constructor(name, age) {
+																																			    this.name = name;  
+																																			    this.age = age;
+																																			  }
+																																			}
+
+																																			const animal = new Animal("モカ", 8);
+
+																																			console.log(`名前: ${animal.name}`);
+																																			console.log(`年齢: ${animal.age}`);
+																																			
+																																																																					
+									メソッド
+																	
+																	クラスの重要な機能の1つである「メソッド」について学習していきましょう。メソッドとはそのインスタンスの「動作」のようなものです。
+																	「名前」や「年齢」などの情報はプロパティで追加したのに対して、メソッドは「挨拶をする」「値を計算する」などの処理のまとまりを表します。
+																	
+																	メソッドはクラスの中で定義します。「メソッド名() { }」とすることでメソッドは定義できます。
+																	メソッドは関数と似たようなもので、中括弧「{ }」の中にそのメソッドで行いたい処理を記述します。
+																	
+																	メソッドは、そのクラスから生成したインスタンスに対して呼び出します。
+																	「インスタンス.メソッド名()」とすることでそのメソッドを呼び出し、処理を実行することができます。	
+																	
+																	
+																	
+																								class Animal {
+																								  constructor(name, age) {
+																								    this.name = name;
+																								    this.age = age;
+																								  }
+																								  
+																								  greet(){
+																								    console.log("こんにちは");
+																								  }																							  
+																								}
+
+																								const animal = new Animal("レオ", 3);
+
+																								console.log(`名前: ${animal.name}`);
+																								console.log(`年齢: ${animal.age}`);
+
+																								animal.greet();	
+																								
+																																																
+																	では次に、「name」の値を用いて「名前は〇〇です」と出力するメソッドを作成してみましょう。
+																	メソッド内でインスタンスの値を使用するには、「this」という特殊な値を用いて、「this.プロパティ名」とします。
+																	
+																																	
+																								class Animal {
+																							  constructor(name, age) {
+																							    this.name = name;
+																							    this.age = age;
+																							  }
+																							  
+																							  greet() {
+																							    console.log("こんにちは");
+																							  }
+																							  
+																							  info(){
+																							    console.log(`名前は${this.name}です`);
+																							    console.log(`${this.age}歳です`);
+																							  }																							  
+																							}
+
+																							const animal = new Animal("レオ", 3);
+																							animal.greet();
+																							animal.info();
+																																																																			
+                                                          //出力結果
+                                                          こんにちは
+                                                          名前はレオです
+                                                          3歳です
+																				
+																				
+																				
+																				メソッド内でメソッドを使う
+																				
+																												メソッド内で他のメソッドを呼び出すことも可能です。
+																												メソッド内で「this.メソッド名()」とすることで、同じクラスの他のメソッドを使うことができます。
+																												
+																												
+																												
+																																				class Animal {
+																																				  constructor(name, age) {
+																																				    this.name = name;
+																																				    this.age = age;
+																																				  }
+																																				  
+																																				  greet() {
+																																				    console.log("こんにちは");
+																																				  }
+																																				  
+																																				  info() {
+																																				    this.greet();
+																																				    
+																																				    console.log(`名前は${this.name}です`);
+																																				    console.log(`${this.age}歳です`);
+																																				  }
+																																				}
+
+																																				const animal = new Animal("レオ", 3);
+																																				animal.info();
+																																																																						
+																																				
+																																											//出力結果
+																																											こんにちは
+																																											名前はレオです
+																																											 3歳です
+																																												 
+																																												 																																										 
+									継承
+									
+																	ここまで動物に関するデータを扱う「Animalクラス」を作成してきました。ここからは、犬のデータに特化した「Dogクラス」を作成していきましょう。
+																	新しく作成するクラスが既存のクラスの一種である場合、「継承」という方法を用いることで非常に効率よく作業を進めることができます。
+																	
+																	「継承」とは、すでにあるクラスをもとに、新しくクラスを作成する方法のことです。
+																	例えば「Animalクラス」から「Dogクラス」を継承すると、「Animalクラス」の全ての機能を引き継いで、「Dogクラス」を作成することができます。
+																	
+																																	
+																				継承の書き方
+																												
+																												継承を用いてクラスを作成するには「extends」を用います。
+																												「Animalクラス」を継承して「Dogクラス」を作成するには、図のように「class Dog extends Animal」と書きます。
+																												また、継承では元となるクラスを親クラス（今回はAnimalクラス）、新しく作成するクラスを子クラス（今回はDogクラス）と呼びます。
+																												
+																																																				
+																																				class Animal {
+																																				  constructor(name, age) {
+																																				    this.name = name;
+																																				    this.age = age;
+																																				  }
+																																				  
+																																				  greet() {
+																																				    console.log("こんにちは");
+																																				  }
+																																				  
+																																				  info() {
+																																				    this.greet();
+																																				    console.log(`名前は${this.name}です`);
+																																				    console.log(`${this.age}歳です`);
+																																				  }
+																																				}
+
+																																				class Dog extends Animal{
+																																				  
+																																				}
+																																				
+																																																																							
+																				継承したメソッドを使う
+																				
+																												「Dogクラス」は「Animalクラス」のすべての機能を引き継いでいます。
+																												そのため、「Dogクラス」内にはまだ何もメソッドは定義されていませんが、
+                                                        「Animalクラス」に定義されている「infoメソッド」などを使用することができます。
+																				
+																																							
+																																				class Animal {
+																																				  constructor(name, age) {
+																																				    this.name = name;
+																																				    this.age = age;
+																																				  }
+																																				  
+																																				  greet() {
+																																				    console.log("こんにちは");
+																																				  }
+																																				  
+																																				  info() {
+																																				    this.greet();
+																																				    console.log(`名前は${this.name}です`);
+																																				    console.log(`${this.age}歳です`);
+																																				  }
+																																				}
+
+																																				class Dog extends Animal {
+																																				}
+
+																																				const dog = new Dog("レオ", 4);
+																																				dog.info();
+																																																																								
+																																				
+																				メソッドの戻り値
+																				
+																												メソッドでは、関数と同じように戻り値を用いることができます。
+																												以下では、「getHumanAge」メソッドの戻り値を、「humanAge」という定数に代入しています。
+																												
+																																																								
+																				子クラスのメソッド
+																				
+																												子クラスで定義した独自のメソッドは、親クラスから呼び出すことはできません。
+																												AnimalクラスのインスタンスからgetHumanAgeメソッドを呼び出すとエラーが発生してしまいます。
+																												
+																																																						
+																																				class Animal {
+																																			  constructor(name, age) {
+																																			    this.name = name;
+																																			    this.age = age;
+																																			  }
+																																			  
+																																			  greet() {
+																																			    console.log("こんにちは");
+																																			  }
+																																			  
+																																			  info() {
+																																			    this.greet();
+																																			    console.log(`名前は${this.name}です`);
+																																			    console.log(`${this.age}歳です`);
+																																			  }
+																																			}
+
+																																			class Dog extends Animal {									
+																																			  getHumanAge(){
+																																			    return this.age * 7;																																    
+																																			  }
+																																			}
+
+																																			const dog = new Dog("レオ", 4);
+																																			dog.info();
+
+																																			const humanAge = dog.getHumanAge();
+																																			console.log(`人間年齢で${humanAge}歳です`);
+																																			
+																																			
+																																											//出力結果
+																																											こんにちは
+																																											名前はレオです
+																																											 4歳です
+																																											 人間年齢で28歳です
+																																											 
+																																											 																																								 
+																				オーバーライド
+																				
+																												親クラスと同じ名前のメソッドを子クラスに定義すると、子クラスのメソッドが優先して使用されます。
+																												これは、子クラスのメソッドが親クラスのメソッドを上書きしていることから、オーバーライドと呼ばれます。
+																												
+																																																						
+																																				class Animal {
+																																			  constructor(name, age) {
+																																			    this.name = name;
+																																			    this.age = age;
+																																			  }
+																																			  
+																																			  greet() {
+																																			    console.log("こんにちは");
+																																			  }
+																																			  
+																																			  info() {
+																																			    this.greet();
+																																			    console.log(`名前は${this.name}です`);
+																																			    console.log(`${this.age}歳です`);
+																																			  }
+																																			}
+
+																																			class Dog extends Animal {
+																																			
+																																			  // 追加されたinfoメソッド
+																																			  info(){
+																																			    this.greet();
+																																			    console.log(`名前は${this.name}です`);
+																																			    console.log(`${this.age}歳です`);
+																																			    
+																																			    const humanAge = this.getHumanAge();
+																																			    console.log(`人間年齢で${humanAge}歳です`);																														
+																																			  }
+
+																																			  getHumanAge() {
+																																			    return this.age * 7;
+																																			  }
+																																			}
+
+																																			const dog = new Dog("レオ", 4);
+																																			dog.info();
+																																			
+																																																																					
+																																											//出力結果
+																																											こんにちは
+																																											名前はレオです
+																																											 4歳です
+																																											 人間年齢で28歳です
+																																											 
+																																											 																																									 
+																				コンストラクタのオーバーライド
+																				
+																												メソッドと同じように、コンストラクタもオーバーライドすることができます。例えば、子クラスにプロパティを追加したい場合などに用います。
+																												ただし、コンストラクタをオーバーライドする際は1行目に「super()」と記述する必要があります。
+																												
+																												子クラスのコンストラクタ内の「super()」では、その部分で親クラスのコンストラクタを呼び出しています。
+																												そのため、親クラスのコンストラクタが引数を受け取る場合には、「super」の後ろの丸括弧「( )」に引数を渡す必要があります。
+																												今回は親クラスのコンストラクタを呼び出したあとに、犬の種類を表す「breed」プロパティを追加しています。
+																												
+																																																					
+																																				class Animal {
+																																			  constructor(name, age) {
+																																			    this.name = name;
+																																			    this.age = age;
+																																			  }
+																																			  
+																																			  greet() {
+																																			    console.log("こんにちは");
+																																			  }
+																																			  
+																																			  info() {
+																																			    this.greet();
+																																			    console.log(`名前は${this.name}です`);
+																																			    console.log(`${this.age}歳です`);
+																																			  }
+																																			}
+
+																																			class Dog extends Animal {
+
+																																			  constructor(name ,age, breed){
+																																			    super(name, age);								//親クラスのコンストラクタを呼び出す
+																																			    this.breed = breed;								//this.breedに引数breedを代入
+																																			  }
+																																			  
+																																			  info() {
+																																			    this.greet();
+																																			    console.log(`名前は${this.name}です`);
+																																			    console.log(`犬種は${this.breed}です`);																															
+																																			    console.log(`${this.age}歳です`);
+																																			    const humanAge = this.getHumanAge();
+																																			    console.log(`人間年齢で${humanAge}歳です`);
+																																			  }
+																																			  
+																																			  getHumanAge() {
+																																			    return this.age * 7;
+																																			  }
+																																			}
+
+																																			const dog = new Dog("レオ", 4,"チワワ");
+																																			dog.info();
+
+
+																																											//出力結果
+																																											こんにちは
+																																											名前はレオです
+																																											 4歳です
+																																											 人間年齢で28歳です
+
+
+
+・モジュールを組み合わせよう
+
+			JavaScriptのコードを複数のファイルに分割し、それらを組み合わせる方法を学びます。
+			複数ファイルに分割することで、維持・更新のしやすいコードを書くことができます。
+			また、パッケージと呼ばれる便利な機能を使うための方法も学びます。
+			
+			
+			
+									ファイルの分割
+									
+																	コードの量が増えてくると1つのファイルで管理するのが大変になるため、複数のファイルでコードを管理することがあります。
+																	メインのプログラムを実行する「script.js」とAnimalクラスを定義する「animal.js」、Dog クラスを定義する「dog.js」
+                                  の3つのファイルにコードを分けてみましょう。
+																	
+																																	
+																					script.js
+																																																															
+																								const dog = new Dog("レオ", 4, "チワワ");
+																								dog.info();
+																		
+																	
+																					animal.js
+																																		
+																								class Dog extends Animal {
+																								  constructor(name, age, breed) {
+																								    super(name, age);
+																								    this.breed = breed;
+																								  }
+
+																								  info() {
+																								    this.greet();
+																								    console.log(`名前は${this.name}です`);
+																								    console.log(`犬種は${this.breed}です`);
+																								    console.log(`${this.age}歳です`);
+																								    const humanAge = this.getHumanAge();
+																								    console.log(`人間年齢で${humanAge}歳です`);
+																								  }
+
+																								  getHumanAge() {
+																								    return this.age * 7;
+																								  }
+																								}
+																								
+																																															
+																					dog.js
+																																											
+																								class Dog extends Animal {
+																								  constructor(name, age, breed) {
+																								    super(name, age);
+																								    this.breed = breed;
+																								  }
+
+																								  info() {
+																								    this.greet();
+																								    console.log(`名前は${this.name}です`);
+																								    console.log(`犬種は${this.breed}です`);
+																								    console.log(`${this.age}歳です`);
+																								    const humanAge = this.getHumanAge();
+																								    console.log(`人間年齢で${humanAge}歳です`);
+																								  }
+
+																								  getHumanAge() {
+																								    return this.age * 7;
+																								  }
+																								}
+																								
+																								
+																								
+									ファイルの分割（2）
+									
+																	ファイルを分割したときのエラーは、それぞれのファイルを関連づけし、必要な値を渡すことで解決できます。
+																	今回の場合「dog.js」でAnimalクラスを、「script.js」でDogクラスを使用できるように設定する必要があります。
+																				
+																																							
+																				export
+																				
+																												クラスの定義の後で「export default クラス名」とすることで、そのクラスをエクスポート（出力）し、他のファイルへ渡すことができます。
+																												
+																																																								
+																				import
+																				
+																												他のファイルで定義されているクラスを使用するにはインポート（読込）をする必要があります。
+																												使用するファイルの先頭で「import クラス名 from "./ファイル名"」と書くことでインポートすることができます。
+																												なお、ファイル名の拡張子の「.js」は省略することができます。 
+																												
+																																																								
+																																animal.js
+																												
+																																				class Animal {
+																																				  constructor(name, age) {
+																																				    this.name = name;
+																																				    this.age = age;
+																																				  }
+
+																																				  greet() {
+																																				    console.log("こんにちは");
+																																				  }
+
+																																				  info() {
+																																				    this.greet();
+																																				    console.log(`名前は${this.name}です`);
+																																				    console.log(`${this.age}歳です`);
+																																				  }
+																																				}
+
+																																				// Animalクラスをエクスポート
+																																				export default Animal;
+																																				
+																																																																								
+																																dog.js
+																																
+																																				// Animalクラスをインポート
+																																				import Animal from "./animal";
+
+																																				class Dog extends Animal {
+																																				  constructor(name, age, breed) {
+																																				    super(name, age);
+																																				    this.breed = breed;
+																																				  }
+
+																																				  info() {
+																																				    this.greet();
+																																				    console.log(`名前は${this.name}です`);
+																																				    console.log(`犬種は${this.breed}です`);
+																																				    console.log(`${this.age}歳です`);
+																																				    const humanAge = this.getHumanAge();
+																																				    console.log(`人間年齢で${humanAge}歳です`);
+																																				  }
+
+																																				  getHumanAge() {
+																																				    return this.age * 7;
+																																				  }
+																																				}
+
+																																				// Dogクラスをエクスポート
+																																				export default Dog;
+																																																																								
+																																				
+																																script.js
+																																
+																																				// Dogクラスをインポート
+																																				import Dog from "./dog";
+
+																																				const dog = new Dog("レオ", 4, "チワワ");
+																																				dog.info();
+																																				
+																																																																								
+																																											//出力結果																																								
+																																											こんにちは
+																																											名前はレオです
+																																											 4歳です
+																																											 人間年齢で28歳です
+																																											 
+																																											 																																											 
+																				値のエクスポート
+																				
+																												クラスのエクスポートを行いましたが、エクスポートできるのはクラスだけではありません。
+                                                        文字列や数値や関数など、どんな値でもエクスポートが可能です。
+																												エクスポートする際は、下図のように「export default 定数名」とします。
+                                                        インポートする際は「import 定数名 from "./ファイル名"」とします。
+																												
+																																																						
+																														データ定義部分の分割
+																														
+																																				「script.js」でDogインスタンスを定義している部分を、新しく作る「dogData.js」に移動します。
+																																				実際には演習のコード量はそこまで多くないため、ファイルを分けるメリットは大きくないですが、
+                                                                        練習のためにやってみましょう。
+																																				
+																																				「dogData.js」はDogクラスをインポートし、Dogインスタンスである定数dogをエクスポートします。
+																																				「script.js」は定数dogをインポートするようにします。
+																																				
+																																																																							
+																																										(変更前)
+																																										script.js
+																																										
+																																														import Dog from "./dog";
+																																														const dog = new Dog("レオ", 4, "チワワ");
+																																														dog.info();
+																																																																																																																																									
+																																										(変更後)
+																																										dogData.js
+																																										
+																																														import Dog from "./dog";
+																																														const dog = new Dog("レオ", 4, "チワワ");
+																																														
+																																														export default dog;
+																																																																														
+																																										script.js
+																																										
+																																														import dog from "./dogData";
+																																														dog.info();
+																																																																																												
+																																														
+																				デフォルトエクスポート
+																				
+																												export defaultはデフォルトエクスポートと呼ばれ、そのファイルがインポートされると自動的に
+                                                        「export default 値」の値がインポートされます。
+																												そのためエクスポート時の値の名前と、インポート時の値の名前に違いがあっても問題ありません。
+																												
+																																																					
+																				デフォルトエクスポートの注意点
+																				
+																												デフォルトエクスポートは1ファイル1つの値のみ使えます。
+                                                        このファイルをインポートする際には、デフォルトエクスポートの値を自動でインポートするため、値が1つのみとなっています。
+																												複数の値をエクスポートしたい場合は、「名前付きエクスポート」を用います。
+																												
+																																																						
+																				名前付きエクスポート（1） 
+																				
+																												名前付きエクスポートとは左の図のように、defaultを書かずに、名前を{}で囲んでエクスポートする書き方です。
+																												名前付きエクスポートした値をインポートする場合は、エクスポート時と同じ名前で値を指定します。
+																												インポートする値は、エクスポート時と同様に、「import { 値の名前 } from "./ファイル名"」と{}で囲んで指定します。
+																												
+																																																							
+																				名前付きエクスポート（2）
+																				
+																												名前付きエクスポートは、デフォルトエクスポートと違い、複数の定数やクラスを指定してエクスポートが出来ます。
+																												また、「export { 名前1, 名前2 }」という形で書くことにより、1つのファイルから複数のエクスポートが出来ます。
+																												インポートの際も、コンマで区切ることで複数のインポートができます。
+																												
+																																																								
+																																										  dogData.js
+																													
+																																															import Dog from "./dog";
+
+																																															const dog1 = new Dog("レオ", 4, "チワワ");
+																																															const dog2 = new Dog("ベン", 2, "プードル");
+
+																																															// 定数dog1, dog2をエクスポート
+																																															export {dog1,dog2};
+																																																																																																																																										
+																																											script.js
+																																											
+																																															// 定数dog1, dog2をインポート
+																																															import {dog1,dog2} from "./dogData";
+
+																																															console.log("---------");
+																																															dog1.info();
+																																															console.log("---------");
+																																															dog2.info();
+																																																																																																																																									
+																																											animal.js
+																																											
+																																																class Animal {
+																																															  constructor(name, age) {
+																																															    this.name = name;
+																																															    this.age = age;
+																																															  }
+
+																																															  greet() {
+																																															    console.log("こんにちは");
+																																															  }
+
+																																															  info() {
+																																															    this.greet();
+																																															    console.log(`名前は${this.name}です`);
+																																															    console.log(`${this.age}歳です`);
+																																															  }
+																																															}
+
+																																															export default Animal;
+																																																																																																																																												
+																																											dog.js
+																																											
+																																															import Animal from "./animal";
+
+																																															class Dog extends Animal {
+																																															  constructor(name, age, breed) {
+																																															    super(name, age);
+																																															    this.breed = breed;
+																																															  }
+
+																																															  info() {
+																																															    this.greet();
+																																															    console.log(`名前は${this.name}です`);
+																																															    console.log(`犬種は${this.breed}です`);
+																																															    console.log(`${this.age}歳です`);
+																																															    const humanAge = this.getHumanAge();
+																																															    console.log(`人間年齢で${humanAge}歳です`);
+																																															  }
+
+																																															  getHumanAge() {
+																																															    return this.age * 7;
+																																															  }
+																																															}
+
+																																															export default Dog;
+																																																																																																																																									
+																																																						//出力結果
+																																																						こんにちは
+																																																						名前はレオです
+																																																						 4歳です
+																																																						 人間年齢で28歳です
+																																																						---------
+																																																						こんにちは
+																																																						名前はベンです
+																																																						 2歳です
+																																																						 人間年齢で14歳です
+																																																						 																																																						 																																																				 
+																				相対パス（1）
+																				
+																												これまでファイルの指定は「./ファイル名」としてきました。
+																												これは相対パスと言い、記述されているファイルからみた位置関係を示しています。
+																												
+																																																							
+																														同じディレクトリのファイル指定
+																																						
+																																							ドット1つの「./」は相対パスが書かれているファイルと同じディレクトリを意味します。
+																																							つまり相対パス"./dogData"は「script.js」と同じsrcディレクトリの中にある
+                                                                              「dogData.js」ファイルを意味します。																																																																																																																					
+																																							例：srcフォルダ配下にscript.js、dogData.jsがある場合で
+																																							   script.jsからdogData.jsを指定したいとき
+																																																																																				
+																																													import {dog1,dog2} from "./dogData";
+																																																																																						
+																																											
+																														異なるディレクトリのファイル指定
+																														
+																																										例：srcフォルダ配下にscript.js、　dataフォルダ、　classフォルダがあり、
+																																											dataフォルダ配下にdogData.js、classフォルダにdog.jsがある場合で
+																																											script.jsからdogData.jsを指定したいとき
+																																										
+																																										
+																																													import Dog from "./data/dogData";
+
+
+																				相対パス（2）
+																																																					
+																												1つ上の階層に戻る場合はドット2つの「../」を用います。
+																												「dogData.js」でclassディレクトリに入っている「dog.js」をインポートする場合は下図のような相対パスになります。
+																																							
+
+																																例：srcフォルダ配下にscript.js、　dataフォルダ、　classフォルダがあり、
+																																	dataフォルダ配下にdogData.js、classフォルダにdog.jsがある場合
+																																										
+																																			import Dog from "../class/dog";
+																												
+																												
+																												
+・パッケージ
+
+			JavaScriptの世界では、誰かが作った便利なプログラムがパッケージという形で公開されています。
+			また、JavaScriptの機能を使うことで、このパッケージを自分のプログラムの中に組み込んで使うことができます。
+			
+			パッケージを自分のプログラムで使うためには、importを用いてパッケージをインポートします。
+			パッケージのimportは、ファイル名ではなくパッケージ名を指定します。
+			
+			
+						// パッケージをインポート
+						import chalk from "chalk";
+
+						import Animal from "./animal";	
+			
+					
+									出力する文字の色を変える
+									
+																	インポートすれば、そのファイルでパッケージが使えるようになります。
+																	chalkは出力する文字の色を変えることが出来ます。
+																	文字列を、chalk.yellowやchalk.bgCyanで囲むだけで、文字の色を変更できます。
+																	
+																																	
+																					 console.log(chalk.yellow(`名前は${this.name}です`));
+
+																 					 console.log(chalk.bgCyan(`犬種は${this.breed}です`));
+																 					 
+																 					 														 					 
+									コンソールから値を受け取ろう
+									
+																	readline-syncというパッケージを導入すると、コンソールへの値の入力と、その入力された値をプログラムの中で使うことができるようになります。
+																	
+																																		
+																					// readline-syncをインポート
+																					import readlineSync from "readline-sync";
+
+																					import Dog from "../class/dog";
+
+																					const dog1 = new Dog("レオ", 4, "チワワ");
+
+																					// readlineSync.questionの部分を定数に代入すると、入力された値がそのまま定数nameに代入されます。
+																					const name = readlineSync.question("名前を入力してください: ");
+
+																					// 年齢のように整数を入力してほしい場合はquestionIntを用います。
+																					const age = readlineSync.questionInt("年齢を入力してください: ");
+
+																					const breed = readlineSync.question("犬種を入力してください: ");
+
+																					const dog2 = new Dog(name, age, breed);
+
+																					export { dog1, dog2 };
+																																										
+																					
+・配列を操作するメソッド
+
+									push
+									
+																	pushメソッドとは、配列の最後に新しい要素を追加するメソッドです。
+																	pushメソッドの後の()の中に追加したい要素を入力します。
+																																	
+																	
+																					const characters = ["にんじゃわんこ", "ベイビーわんこ", "ひつじ仙人"];
+																					console.log(characters);												
+
+																					// 配列charactersに、文字列「とりずきん」を追加
+																					characters.push("とりずきん");																				
+																					console.log(characters);												
+																					
+																																										
+																					出力結果：["にんじゃわんこ", "ベイビーわんこ", "ひつじ仙人"]
+																							　["にんじゃわんこ", "ベイビーわんこ", "ひつじ仙人", "とりずきん"]
+																							　																					　
+																							　
+									forEach
+									
+																	forEachメソッドの引数には、学習Ⅲで学んだアロー関数が入っています。
+																	配列内の要素が1つずつ順番にアロー関数の引数に代入され、処理が繰り返し実行されます。
+																	
+																	また、引数に入っている関数はコールバック関数と呼びます。 
+																					
+																																										
+																					const characters = ["にんじゃわんこ", "ベイビーわんこ", "ひつじ仙人", "とりずきん"];
+
+																					// forEachメソッドを使って、配列charactersの中身をすべて出力する
+																					characters.forEach((character) => {
+																						console.log(character)
+																					});
+																					
+																																									
+																					出力結果：にんじゃわんこ
+																							　ベイビーわんこ 
+																							　ひつじ仙人
+																							　とりずきん
+																							
+																																											
+									find
+									
+																	findメソッドとは、コールバック関数の処理部分に記述した条件式に合う1つ目の要素を配列の中から取り出すメソッドです。
+																	配列numbersの要素が1つずつ引数numberに代入されて処理が進みます。
+																	コールバック関数の中は { return 条件 } と書くことで、条件に合う要素が戻り値となります。
+																		
+																		※findメソッドは条件に合う要素が見つかった時に終了するので、条件に合う最初の1つの要素しか取り出せません。
+																	
+																	また、配列の要素がオブジェクトの場合もfindメソッドを使うことができます。
+																	
+																															
+																					const numbers = [1, 3, 5, 7, 9];
+
+																					// findメソッドを使って配列numbersから3の倍数を見つけ、定数foundNumberに代入
+																					const foundNumber = numbers.find((number) => {
+																					 return number % 3 === 0 
+																					});
+
+																					console.log(foundNumber);
+
+																					const characters = [
+																					  {id: 1, name: "にんじゃわんこ", age: 6},
+																					  {id: 2, name: "ベイビーわんこ", age: 2},
+																					  {id: 3, name: "ひつじ仙人", age: 100},
+																					  {id: 4, name: "とりずきん", age: 21}
+																					];
+
+																					// 定数charactersからidが3のオブジェクトを見つけ、定数foundCharacterに代入
+																					const foundCharacter = characters.find((character) => {
+																					 return character.id === 3 
+																					});
+
+																					console.log(foundCharacter);
+																																									
+																					
+																					出力結果：3
+																							 {id: 3, name: "ひつじ仙人", age: 100}
+																							 
+																							 																							 
+									filter
+									
+																	filterメソッドとは記述した条件に合う要素のみを取り出して新しい配列を作成するメソッドです。
+																	findメソッドと同様に、配列の要素がオブジェクトの場合もfilterメソッドを使うことができます。
+																	
+																																
+																					const numbers = [1, 2, 3, 4];
+
+																					// filterメソッドを使ってnumbersから偶数を取り出し、定数evenNumbersに代入
+																					const evenNumbers = numbers.filter((number) =>{
+																					  return number % 2 === 0
+																					});
+
+																					console.log(evenNumbers);
+
+																					const characters = [
+																					  {id: 1, name:"にんじゃわんこ", age: 14},
+																					  {id: 2, name:"ベイビーわんこ", age: 5},
+																					  {id: 3, name:"ひつじ仙人", age: 100}
+																					];
+
+																					// charactersから20歳未満のキャラクターを取り出し、定数underTwentyに代入
+																					const underTwenty = characters.filter((character) =>{
+																					  return character.age < 20
+																					});
+
+																					console.log(underTwenty);
+																					
+																																							
+																					出力結果：[2, 4]
+																							  [{id: 1, name:"にんじゃわんこ", age: 14},
+																							   {id: 2, name:"ベイビーわんこ", age: 5}]
+																							   
+																							   																		   
+									map
+									
+																	mapメソッドとは、配列内のすべての要素に処理を行い、その戻り値から新しい配列を作成するメソッドです。
+																	mapメソッドもこれまでのメソッドと同様に、配列のオブジェクト要素に対しても使うことができます。
+																	
+																															
+																					const numbers = [1, 2, 3, 4];
+
+																					// 定数numbersにmapメソッドを使って配列を作り、定数doubledNumbersに代入
+																					const doubledNumbers = numbers.map((number) => {
+																					  return number * 2;
+																					});
+
+																					console.log(doubledNumbers);
+
+																					const names = [
+																					  {firstName: "Kate", lastName: "Jones"},
+																						{firstName: "John", lastName: "Smith"},
+																						{firstName: "Denis", lastName: "Williams"},
+																						{firstName: "David", lastName: "Black"}
+																					];
+
+																					// 定数namesにmapメソッドを使って新しい配列を作り、定数fullNamesに代入
+																					const fullNames = names.map((name) => {
+																					  return name.firstName + name.lastName ;
+																					});
+
+																					console.log(fullNames);
+																					
+																																									
+																					出力結果：[2, 4, 6, 8]
+																							  ["KateJones","JohnSmith", "DenisWilliams","DavidBlack" ]
+																							  																				  
+																							  
+・コールバック関数
+
+			JavaScriptでは引数に関数を渡すことができます。
+			引数に渡される関数をコールバック関数と呼びます。
+			
+						
+										関数の呼び出し方と渡し方
+						
+																		関数は、関数名の後ろに()をつけると呼び出され、()をつけなければ関数そのものを指します。
+																		
+																																		
+																					const printWanko = () => {
+																					  console.log("にんじゃわんこ");
+																					};
+
+																					// ②printWankoをcallbackに代入
+																					const call = (callback) => {
+																					  console.log("コールバック関数を呼び出します。");
+																					  // ③引数に渡したcallbackを呼び出す
+																					  callback();
+																					};
+
+																					// ①call関数を実行、printWanko引数を関数に渡す
+																					call(printWanko);
+																					
+																																								
+																					出力結果：コールバック関数を呼び出します。
+																							　   にんじゃわんこ
+																							　																						　
+																							
+										引数で関数を定義する
+										
+																					const printWanko = () => {
+																					  console.log("にんじゃわんこ");
+																					};
+
+																					const call = (callback) => {
+																					  console.log("コールバック関数を呼び出します。");
+																					  callback();
+																					};
+
+																					call(printWanko);
+
+																					// 引数で関数を定義
+																					call(() => {
+																					  console.log("ひつじ仙人");
+																					});
+																					
+																																									
+																					出力結果：コールバック関数を呼び出します。
+                                                   にんじゃわんこ
+                                                   コールバック関数を呼び出します。
+                                                   ひつじ仙人
+																							　
+																			　
+										複数の引数を渡す
+										
+																					const call = (callback) => {
+																					  callback("にんじゃわんこ", 14);
+																					};
+
+																					// 関数callの引数の中で2つの引数を取る関数を追加
+																					call((name, age) => {
+																					  console.log(`${name}は${age}歳です。`);
+																					});
+																					
+																
+																					出力結果：にんじゃわんこは14歳です。
