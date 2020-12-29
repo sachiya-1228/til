@@ -62,84 +62,68 @@
 																	
 ・条件分岐
 
+	条件式は、成り立つと「true」、成り立たなければ「false」という真偽値に置き換わります。
 
-			条件式は、成り立つと「true」、成り立たなければ「false」という真偽値に置き換わります。
+			const age = 24;
 
-								const age = 24;
-
-								console.log(age >=20);					//結果:true;
+			console.log(age >=20);					//結果:true;
 								
-								if(age >= 20){
-									  console.log("私は20歳以上です");	//結果:私は20歳以上です
-								}
+			if(age >= 20){
+			console.log("私は20歳以上です");	//結果:私は20歳以上です
+			}
 
 
-									比較演算子
+		比較演算子
 																	
-																	比較演算子には、左と右の値が等しいかを調べるものもあります。 
-																	「a === b」はaとbが等しければtrue、等しくなければfalseになります。 「a !== b」はその逆です。 
-																	この記号は数値だけでなく、文字列同士の比較にも使えます。 
+			比較演算子には、左と右の値が等しいかを調べるものもあります。 
+			「a === b」はaとbが等しければtrue、等しくなければfalseになります。 「a !== b」はその逆です。 
+			この記号は数値だけでなく、文字列同士の比較にも使えます。 
 									
 
-																						const password = "ninjawanko";
+					const password = "ninjawanko";
+					
+					if(password === "ninjawanko"){																			console.log("ログインに成功しました");
+					}
 
-
-																						if(password === "ninjawanko"){
-																						
-																							console.log("ログインに成功しました");
-																							
-																						}
-
-																						if(password !== "ninjawanko"){	
-																						
-																						  	console.log("パスワードが間違っています")
-																						  	;
-																						}
+					if(password !== "ninjawanko"){	
+					console.log("パスワードが間違っています");
+					}
 																						
 																				
-									条件を追加する
+		条件を追加する
 												
-																	ifとelseの間に「else if (条件)」を追加することで、if文に条件分岐を追加することができます。
+			ifとelseの間に「else if (条件)」を追加することで、if文に条件分岐を追加することができます。
 
-
-																						const age = 17;
-
-																						if (age >= 20) {
-																						  console.log("私は20歳以上です");					//age>=20がtrueの時の処理
-																						} 
-																						else if(age>=10){
-																						  console.log("私は20歳未満ですが、10歳以上です");	//age>=20がfalse and age>=10がtureの時の処理
-																						}
-																						 else {
-																						  console.log("私は10歳未満です");					//age>=20 and age>=10がfalseの時の処理
-																						}
+					const age = 17;
+					
+					if (age >= 20) {																				console.log("私は20歳以上です");			//age>=20がtrueの時の処理
+					} else if(age>=10){																				console.log("私は20歳未満ですが、10歳以上です");	//age>=20がfalse and age>=10がtureの時の処理										} else {																					console.log("私は10歳未満です");		//age>=20 and age>=10がfalseの時の処理											}
 																						
 																				
-									switch文
+		switch文
 																		
-																	if文以外の条件分岐の方法として、switch文というものを学んでみましょう。
-																	switch文の中にcaseを追加することで処理を分けることができます。
+			if文以外の条件分岐の方法として、switch文というものを学んでみましょう。
+			switch文の中にcaseを追加することで処理を分けることができます。
 																	
-																	また、switch文ではbreakが非常に重要です。breakとはswitch文を終了する命令です。
-																	breakがないと、合致したcaseの処理を行った後、その次のcaseの処理も実行してしまいます。
-																	そのため、switch文を使うときにはbreakを忘れないように気をつけましょう。
+			また、switch文ではbreakが非常に重要です。breakとはswitch文を終了する命令です。
+			breakがないと、合致したcaseの処理を行った後、その次のcaseの処理も実行してしまいます。
+			そのため、switch文を使うときにはbreakを忘れないように気をつけましょう。
 
+																											const rank =　"山田" ;
 
-																						const rank =　"山田" ;
+					switch (rank) {
+						case "山田":
+																											    console.log("金メダルです！");
+																											    break;
 
-																						switch (rank) {
-																						  case "山田":
-																						    console.log("金メダルです！");
-																						    break;
+																											  case "ケニー":
+																											    console.log("銀メダルです！");
+																											    break;
 
-																						  case "ケニー":
-																						    console.log("銀メダルです！");
-																						    break;
-																						  
-																						    case "斎藤":
-																						    console.log("銅メダルです！");
-																						    break;																						  
-																						}
+																											    case "斎藤":
+																											    console.log("銅メダルです！");
+																											    break;																						  
+																											}
 																						
 																						
 									switch文 - default
