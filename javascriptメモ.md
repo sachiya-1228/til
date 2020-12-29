@@ -110,106 +110,75 @@
 			そのため、switch文を使うときにはbreakを忘れないように気をつけましょう。
 
 																											const rank =　"山田" ;
-
-					switch (rank) {
-						case "山田":
-																											    console.log("金メダルです！");
-																											    break;
-
-																											  case "ケニー":
-																											    console.log("銀メダルです！");
-																											    break;
-
-																											    case "斎藤":
-																											    console.log("銅メダルです！");
-																											    break;																						  
-																											}
+																											switch (rank) {																					case "山田":																				 	console.log("金メダルです！");																			break;
+																											 case "ケニー":
+						console.log("銀メダルです！");																			 break;
+																											 case "斎藤":																					console.log("銅メダルです！");																			break;																					}
 																						
 																						
-									switch文 - default
+																						
+		switch文 - default
                   
-																	switchの条件の値がcaseの値と一致したとき、その部分の処理が実行されます。
-																	caseのどれにも一致しなかった時、defaultのブロックが実行されます。
-																	defaultはif文のelseに似たようなものです。
+			switchの条件の値がcaseの値と一致したとき、その部分の処理が実行されます。
+			caseのどれにも一致しなかった時、defaultのブロックが実行されます。
+			defaultはif文のelseに似たようなものです。
 																	
 
-																						const rank =　"山田" ;
-
-																						switch (rank) {
-																						  case "山田":
-																						    console.log("金メダルです！");
-																						    break;
-
-																						  case "ケニー":
-																						    console.log("銀メダルです！");
-																						    break;
-																						  
-																						    case "斎藤":
-																						    console.log("銅メダルです！");
-																						    break;
-																						    
-																						    default:
-																						    console.log("メダルはありません");
-																						    break;																					  
-																						}
+																											const rank =　"山田" ;
+																											switch (rank) {																					case "山田":																				  	console.log("金メダルです！");													
+						break;
+																											 case "ケニー":																					console.log("銀メダルです！");																			break;																						 																					case "斎藤":																				 	console.log("銅メダルです！");																		 	break;
+																											default:																					 	console.log("メダルはありません");																		break;																					}
 																						
 																						
 
 ・繰り返し処理
 
 
-									while文
+		while文
 									
-																	while文は「条件式がtrueの間、{ }内の処理を繰り返す」ことができます。
-																	 {}の後にセミコロンは不要です。
+			while文は「条件式がtrueの間、{ }内の処理を繰り返す」ことができます。
+			{}の後にセミコロンは不要です。
 																	 
-																	 while文を用いる場合には、条件式の部分がいつかはfalseになり、繰り返し処理が終わる必要があることに注意してください。
-																	※無限ループになってしまうため
+			while文を用いる場合には、条件式の部分がいつかはfalseになり、繰り返し処理が終わる必要があることに注意してください。
+			※無限ループになってしまうため
 																	
-																	例えば、number < 100が条件式として処理の最後にnuber += 1を入れてあげることで，101になったらループから抜けることができる。
-																	
-																																	
-																						let number = 1;
-																	
-																							while(number <=100){
-																							  console.log(number);
-																							  number += 1;
-																							}
-																							
-																							
-									for文の書き方
+			例えば、number < 100が条件式として処理の最後にnuber += 1を入れてあげることで，101になったらループから抜けることができる。
+								
+								
+						let number = 1;
+																												while(number <=100){																				console.log(number);																				number += 1;																					}
+					
+					
+		for文の書き方
 									
-																	for文では「変数の定義」「条件式」「変数の更新」の3つを括弧の中に書きます。
-																	「number += 1」は「number ++」のように省略して書くことができます。
-																	また、引き算の場合にも、「number -= 1」を「number --」と省略することができます。
-																	
-																																		
-																						for( let number = 1; number <=100; number++){
-																						 	 console.log(number);
-																						}
+			for文では「変数の定義」「条件式」「変数の更新」の3つを括弧の中に書きます。
+			「number += 1」は「number ++」のように省略して書くことができます。
+			また、引き算の場合にも、「number -= 1」を「number --」と省略することができます。
+																																																	for( let number = 1; number <=100; number++){																	 console.log(number);																				}
 																	
 																	
 
 ・配列
 
-			複数の値をまとめて管理するには、配列というものを用います。
-			配列は、[値1, 値2, 値3] のように作ります。配列に入っているそれぞれの値のことを要素と呼びます。
+	複数の値をまとめて管理するには、配列というものを用います。
+	配列は、[値1, 値2, 値3] のように作ります。配列に入っているそれぞれの値のことを要素と呼びます。
 			
-			配列も1つの値なので、定数に代入することができます。 
-			このとき、配列を代入する定数名は、慣習上複数形にすることが多いので覚えておきましょう。 
-			(fruit1,fruit2・・・があるなら、配列ではfruitsにする)
+	配列も1つの値なので、定数に代入することができます。 
+	このとき、配列を代入する定数名は、慣習上複数形にすることが多いので覚えておきましょう。 
+	(fruit1,fruit2・・・があるなら、配列ではfruitsにする)
 			
 						
-						const animals = ["dog","cat","sheep"];
+				const animals = ["dog","cat","sheep"];
 
-						console.log(animals);
+				console.log(animals);
 			
 			
 			
-									インデックス番号
+		インデックス番号
 																	
-																	配列の要素にはそれぞれインデックス番号という番号がついています。
-																	インデックス番号は、0から始まることに注意しましょう。（インデックス＝添え字）
+			配列の要素にはそれぞれインデックス番号という番号がついています。
+			インデックス番号は、0から始まることに注意しましょう。（インデックス＝添え字）
 																	
 																																
 																							const animals = ["dog", "cat", "sheep"];
