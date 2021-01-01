@@ -108,15 +108,24 @@
 			また、switch文ではbreakが非常に重要です。breakとはswitch文を終了する命令です。
 			breakがないと、合致したcaseの処理を行った後、その次のcaseの処理も実行してしまいます。
 			そのため、switch文を使うときにはbreakを忘れないように気をつけましょう。
+			
+			
+					const rank =　"山田" ;
+					switch (rank) {
+					case "山田":
+						console.log("金メダルです！");
+						break;
 
-																											const rank =　"山田" ;
-																											switch (rank) {																					case "山田":																				 	console.log("金メダルです！");																			break;
-																											 case "ケニー":
-						console.log("銀メダルです！");																			 break;
-																											 case "斎藤":																					console.log("銅メダルです！");																			break;																					}
-																						
-																						
-																						
+					case "ケニー":
+						console.log("銀メダルです！");
+						 break;
+
+					case "斎藤":
+						console.log("銅メダルです！");
+						break;
+					}
+					
+					
 		switch文 - default
                   
 			switchの条件の値がcaseの値と一致したとき、その部分の処理が実行されます。
