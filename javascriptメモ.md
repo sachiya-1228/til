@@ -122,16 +122,28 @@
 			switchの条件の値がcaseの値と一致したとき、その部分の処理が実行されます。
 			caseのどれにも一致しなかった時、defaultのブロックが実行されます。
 			defaultはif文のelseに似たようなものです。
-																	
+			
 
-																											const rank =　"山田" ;
-																											switch (rank) {																					case "山田":																				  	console.log("金メダルです！");													
+					const rank =　"山田" ;
+					switch (rank) {
+					case "山田":
+						console.log("金メダルです！");
 						break;
-																											 case "ケニー":																					console.log("銀メダルです！");																			break;																						 																					case "斎藤":																				 	console.log("銅メダルです！");																		 	break;
-																											default:																					 	console.log("メダルはありません");																		break;																					}
-																						
-																						
 
+					case "ケニー":
+						console.log("銀メダルです！");
+						break;
+
+					case "斎藤":
+						console.log("銅メダルです！");
+						break;
+
+					default:
+						console.log("メダルはありません");
+						break;
+					}
+					
+					
 ・繰り返し処理
 
 
@@ -141,8 +153,7 @@
 			{}の後にセミコロンは不要です。
 																	 
 			while文を用いる場合には、条件式の部分がいつかはfalseになり、繰り返し処理が終わる必要があることに注意してください。
-			※無限ループになってしまうため
-																	
+			※無限ループになってしまうため																
 			例えば、number < 100が条件式として処理の最後にnuber += 1を入れてあげることで，101になったらループから抜けることができる。
 								
 								
@@ -170,524 +181,389 @@
 			
 						
 				const animals = ["dog","cat","sheep"];
-
 				console.log(animals);
 			
-			
-			
+						
 		インデックス番号
 																	
 			配列の要素にはそれぞれインデックス番号という番号がついています。
 			インデックス番号は、0から始まることに注意しましょう。（インデックス＝添え字）
 																	
-																																
-																							const animals = ["dog", "cat", "sheep"];
-
-																							console.log(animals[0]);
-
-																							console.log(animals[2]);
-																							
+																										const animals = ["dog", "cat", "sheep"];																	console.log(animals[0]);																			console.log(animals[2]);
+																													
+		配列の要素数を取得
 									
-									
-									配列の要素数を取得
-									
-																	配列.lengthとすることで、配列の要素数を取得できます。
-																	配列の要素数が変わっても問題なく繰り返すことができるので便利です。
+			配列.lengthとすることで、配列の要素数を取得できます。
+			配列の要素数が変わっても問題なく繰り返すことができるので便利です。
 																	
-																																	
-																							for (let i = 0; i < animals.length; i++) {
-																							  console.log(animals[i]);
-																							}
-																							
-																							
-																							
+																										for (let i = 0; i < animals.length; i++) {																		console.log(animals[i]);																		}
+																						
+																					
 ・オブジェクト
 
-			オブジェクトは配列と同じく複数のデータをまとめて管理するのに用いられます。
-			配列は複数の値を並べて管理するのに対して、オブジェクトはそれぞれの値にプロパティと呼ばれる名前をつけて管理します。
-			配列は要素を[]で囲みましたが、オブジェクトは{}で囲みます。
+	オブジェクトは配列と同じく複数のデータをまとめて管理するのに用いられます。
+	配列は複数の値を並べて管理するのに対して、オブジェクトはそれぞれの値にプロパティと呼ばれる名前をつけて管理します。
+	配列は要素を[]で囲みましたが、オブジェクトは{}で囲みます。
 			
-			
-			
-						//配列
-						[値1,値2,値3]；
+					
+				//配列
+				[値1,値2,値3]；
 						
-						//オブジェクト
-						｛プロパティ1：値1,プロパティ2,値3｝;
+				//オブジェクト
+				｛プロパティ1：値1,プロパティ2,値3｝;
 						
 						
-						const character = {name:"にんじゃわんこ",age:14};
-
-						console.log(character);		//結果：{name:"にんじゃわんこ",age:14}
-
+				const character = {name:"にんじゃわんこ",age:14};
+				console.log(character);		//結果：{name:"にんじゃわんこ",age:14}
 
 
-									オブジェクトの値を取り出す
+
+		オブジェクトの値を取り出す
 									
-																	オブジェクトの値を取り出すには、対応するプロパティ名を用いて 、「オブジェクト.プロパティ名」のようにします。
-																																
-																
-									オブジェクトの値を更新する
+			オブジェクトの値を取り出すには、対応するプロパティ名を用いて 、「オブジェクト.プロパティ名」のようにします。
+																																											
+		オブジェクトの値を更新する
 									
-																	「オブジェクト.プロパティ名 = 新しい値」とすることでオブジェクトの値を更新することができます。
+			「オブジェクト.プロパティ名 = 新しい値」とすることでオブジェクトの値を更新することができます。
 																	
-																																		
-																							const character = {name: "にんじゃわんこ", age: 14};
-
-																							console.log(character.name);						//結果：にんじゃわんこ
-
-																							character.age = 20;
-
-																							console.log(character);								//結果：{name: "にんじゃわんこ", age: 20}
+																											const character = {name: "にんじゃわんこ", age: 14};	
+																											console.log(character.name);				//結果：にんじゃわんこ
+					character.age = 20;																				console.log(character);					//結果：{name: "にんじゃわんこ", age: 20}
 																		
 									
-									オブジェクトを要素に持つ配列
+		オブジェクトを要素に持つ配列
 									
-																	配列の要素には、文字列や数値だけでなく、オブジェクトも使うことができます。
-																	コードが横に長くなることを防ぐために、要素ごとに改行することがよくありますので、覚えておきましょう。
+			配列の要素には、文字列や数値だけでなく、オブジェクトも使うことができます。
+			コードが横に長くなることを防ぐために、要素ごとに改行することがよくありますので、覚えておきましょう。
 																	
-																	配列の中のオブジェクトのプロパティの値を取り出すには、「配列[インデックス番号].プロパティ名」と書きます。
+			配列の中のオブジェクトのプロパティの値を取り出すには、「配列[インデックス番号].プロパティ名」と書きます。
 																	
-																																		
-																							const characters = [
-																							  {name: "にんじゃわんこ", age: 14},
-																							  {name: "ひつじ仙人", age: 1000}
-																							];
-
-																							console.log(characters[0]);							//結果：{name: "にんじゃわんこ", age: 14}
-
-																							console.log(characters[1].name);					//結果：ひつじ仙人
+																											const characters = [																				{name: "にんじゃわんこ", age: 14},																		{name: "ひつじ仙人", age: 1000}
+					];
+																											console.log(characters[0]);				//結果：{name: "にんじゃわんこ", age: 14}
+					console.log(characters[1].name);			//結果：ひつじ仙人
 									
 																		
-									存在しない要素を取得する
+		存在しない要素を取得する
 									
-																	配列の存在しないインデックス番号の要素や、オブジェクトの存在しないプロパティの要素を取得しようとすると、undefined と出力されます。
-																	undefined は特別な値で、値が定義されていないことを意味します。
+			配列の存在しないインデックス番号の要素や、オブジェクトの存在しないプロパティの要素を取得しようとすると、undefined と出力されます。
+			undefined は特別な値で、値が定義されていないことを意味します。
 																	
-																	下記の配列[3]はageがないので、出力結果がundefinedになってしまう。
-																	だから、if文でundefinedのものとそれ以外で分岐させる。
+			下記の配列[3]はageがないので、出力結果がundefinedになってしまう。
+			だから、if文でundefinedのものとそれ以外で分岐させる。
 																	
-																																
-																							const characters = [
-																							  {name: "にんじゃわんこ", age: 14},
-																							  {name: "ひつじ仙人", age: 100},
-																							  {name: "ベイビーわんこ", age: 5},
-																							  {name: "とりずきん"}
-																							];
+																											const characters = [																				{name: "にんじゃわんこ", age: 14},																		{name: "ひつじ仙人", age: 100},
+					{name: "ベイビーわんこ", age: 5},
+					{name: "とりずきん"}
+					];
 
-																							for (let i = 0; i < characters.length; i++) {
-																							  console.log("--------------------");
-																							  
-																							  const character = characters[i];
-																							  
-																							  console.log(`名前は${character.name}です`);
-																							  
-																							  if(character.age === undefined){
-																							    console.log("年齢は秘密です");
-																							  }else{
-																							   console.log(`${character.age}歳です`);
-																							  }
-																	}
+					for (let i = 0; i < characters.length; i++) {
+					console.log("--------------------");
+					const character = characters[i];
+					console.log(`名前は${character.name}です`);
+																												if(character.age === undefined){																		console.log("年齢は秘密です");
+						}else{
+						console.log(`${character.age}歳です`);
+					 	}
+					}
 																										
 									
-									複雑なオブジェクトを扱う
+		複雑なオブジェクトを扱う
 									
-																	オブジェクトの値の部分には、文字列や数値だけでなく、オブジェクトを用いることができます。
-																	このようなオブジェクトは、「オブジェクト名.プロパティ.プロパティ」のように呼び出します。
+			オブジェクトの値の部分には、文字列や数値だけでなく、オブジェクトを用いることができます。
+			このようなオブジェクトは、「オブジェクト名.プロパティ.プロパティ」のように呼び出します。
 																	
 																	
-																	
-																							const cafe = {
-																							  name: "Progateカフェ",
-																							  businessHours: {
-																							    opening:"10:00(AM)",
-																							    closing:"8:00(PM)"
-																							  },
-																							};
+					const cafe = {
+					name: "Progateカフェ",
+					businessHours: {
+					opening:"10:00(AM)",
+					closing:"8:00(PM)"}
+					};
 
-																							console.log("店名:" + cafe.name);
-
-																							console.log("営業時間:"+ cafe.businessHours.opening +"から" +cafe.businessHours.closing);
+					console.log("店名:" + cafe.name);
+					console.log("営業時間:"+ cafe.businessHours.opening +"から" +cafe.businessHours.closing);
 																							
-																																																		
-																	また、オブジェクトの値には配列を用いることもできます。
+			また、オブジェクトの値には配列を用いることもできます。
 																	
-																							const cafe = {
-																							  name: "Progateカフェ",
-																							  businessHours: { 
-																							    opening: "10:00(AM)",
-																							    closing: "8:00(PM)"
-																							  },
+					const cafe = {
+					 name: "Progateカフェ",
+					businessHours: { 
+					opening: "10:00(AM)",
+					closing: "8:00(PM)"},
+					menus:["コーヒー","紅茶","チョコレートケーキ"]
+					};
 
-																							  menus:["コーヒー","紅茶","チョコレートケーキ"]
-																							  
-																							};
+					console.log(`店名: ${cafe.name}`);
+					console.log(`営業時間:${cafe.businessHours.opening}から${cafe.businessHours.closing}`);
+					console.log(`----------------------------`);
+					console.log("おすすめメニューはこちら");
 
-																							console.log(`店名: ${cafe.name}`);
-																							console.log(`営業時間:${cafe.businessHours.opening}から${cafe.businessHours.closing}`);
-																							console.log(`----------------------------`);
-																							console.log("おすすめメニューはこちら");
-
-
-																							for(let i=0; i< cafe.menus.length; i++){
-																							  console.log(cafe.menus[i]);
-																							}
-																																												
-																							
+					for(let i=0; i< cafe.menus.length; i++){
+					 console.log(cafe.menus[i]);
+					}
+																																										
 ・関数
 
-			関数（かんすう）とは、「いくつかの処理をまとめたもの」です。
+	関数（かんすう）とは、「いくつかの処理をまとめたもの」です。
 					
 			
-									関数の定義
+		関数の定義
 									
-																	「function()」と書き、その後ろの中括弧「{ }」の中にまとめたい処理を書くことで関数を用意することができます。
-																	また、このように関数を用意することを「関数を定義する」と呼びます
+			「function()」と書き、その後ろの中括弧「{ }」の中にまとめたい処理を書くことで関数を用意することができます。
+			また、このように関数を用意することを「関数を定義する」と呼びます
 																	
-																																		
-									関数の呼び出し
+								
+		関数の呼び出し
 									
-																	関数を定義した際に使用した定数名を用いて、「定数名()」と書くことで関数の中の処理を実行できます。このことを「関数を呼び出す」と言います。
+			関数を定義した際に使用した定数名を用いて、「定数名()」と書くことで関数の中の処理を実行できます。このことを「関数を呼び出す」と言います。
 																	
-																																		
-																								const greet = function() {
-																								  console.log("こんにちは！");
-																								  console.log("関数を学習していきましょう！");
-																								};
+																											const greet = function() {
+					 console.log("こんにちは！");
+					console.log("関数を学習していきましょう！");
+					};
 
-
-																								greet();										//結果：こんにちは！
-																																						関数を学習していきましょう！
-																																						
-																																																																												
-									アロー関数
+					greet();					//結果：こんにちは！
+				
+				
+		アロー関数
 									
-																	「function()」の部分を「() =>」としても、これまでと同じように関数を定義することができます。
-																	これはES6から導入された新しい書き方で、「function」を用いるよりシンプルに書くことができます。
+			「function()」の部分を「() =>」としても、これまでと同じように関数を定義することができます。
+			これはES6から導入された新しい書き方で、「function」を用いるよりシンプルに書くことができます。
 																	
-																																		
-																								const greet = ()=>{
-																								  console.log("こんにちは！");
-																								}
+																											const greet = ()=>{
+					 console.log("こんにちは！");
+					}
+					
+					greet();					//結果：こんにちは！
 
-																								greet();										//結果：こんにちは！
 
-
-									引数とは
+		引数とは
 									
-																	引数（ひきすう）とは関数に与える追加情報のようなものです。
-																	関数を呼び出すときに一緒に値を渡すことで、関数の中でその値を利用することができます。
+			引数（ひきすう）とは関数に与える追加情報のようなものです。
+			関数を呼び出すときに一緒に値を渡すことで、関数の中でその値を利用することができます。
 																	
-																	「(引数名) =>」と括弧の中に引数名を書くことで引数を受け取ることができます。
-																	引数を受け取る関数を呼び出すには、「定数名(値)」と書きます。
-																	関数は指定した値を受け取り、その値は引数に代入されます。
+			「(引数名) =>」と括弧の中に引数名を書くことで引数を受け取ることができます。
+			引数を受け取る関数を呼び出すには、「定数名(値)」と書きます。
+			関数は指定した値を受け取り、その値は引数に代入されます。
 																	
-																	引数は関数内では定数や変数と同じように使用することができます。
+			引数は関数内では定数や変数と同じように使用することができます。
 																	
-																																		
-																								const greet = (name) => {
-
-																								  console.log(`こんにちは、${name}さん`);
-																								  
-																								};
-
-																								greet("ひつじ仙人");							//結果：こんにちは、ひつじ仙人さん
+																											const greet = (name) => {
+					console.log(`こんにちは、${name}さん`);
+					};
+					
+					greet("ひつじ仙人");				//結果：こんにちは、ひつじ仙人さん
 																								
-																																															
-									複数の引数を受け取る
+		複数の引数を受け取る
 									
-																	関数は引数を複数受け取ることもできます。()の中に受け取る引数をコンマ(,)で区切って並べることで、複数の引数を指定することができます。
-																	引数は、左から順番に「第1引数、第2引数、...」と呼びます。
-																	複数の引数に値を渡して関数を呼び出すには、定義するときと同じように、コンマ(,)を用います。
+			関数は引数を複数受け取ることもできます。()の中に受け取る引数をコンマ(,)で区切って並べることで、複数の引数を指定することができます。
+			引数は、左から順番に「第1引数、第2引数、...」と呼びます。
+			複数の引数に値を渡して関数を呼び出すには、定義するときと同じように、コンマ(,)を用います。
 																	
-																																	
-																								const add = (number1,number2) => {
-																								  console.log(number1 + number2);
-																								  
-																								};
-
-																								add(5, 7);										//結果：12
+																											const add = (number1,number2) => {																		 console.log(number1 + number2);
+					};
+					
+					add(5, 7);					//結果：12
 																								
-																																																
-									戻り値
+
+		戻り値
 									
-																	呼び出し元で受け取る処理結果を戻り値（もどりち）と呼び、このことを「関数が戻り値を返す」と言います。
+			呼び出し元で受け取る処理結果を戻り値（もどりち）と呼び、このことを「関数が戻り値を返す」と言います。
 																	
-																	関数の中でreturnを使うと、呼び出し元で値を受け取れるようになります。
-																	「return 値」と書くことで、関数はその値を戻り値として返します。
-																	return a　+ b;と指定したら、a + bの値が戻り値として呼び出し元に帰ります。
+			関数の中でreturnを使うと、呼び出し元で値を受け取れるようになります。
+			「return 値」と書くことで、関数はその値を戻り値として返します。
+			return a　+ b;と指定したら、a + bの値が戻り値として呼び出し元に帰ります。
 																	
-																	呼び出した関数に戻り値がある場合、関数の呼び出し部分がそのまま戻り値に置きかわります。
-																	関数の呼び出し部分を定数に代入することもできます。
+			呼び出した関数に戻り値がある場合、関数の呼び出し部分がそのまま戻り値に置きかわります。
+			関数の呼び出し部分を定数に代入することもできます。
 																	
-																																		
-																								const half = (number) => {
-																								  return number / 2;
-																								};
+																											const half = (number) => {
+					 return number / 2;
+					};
 
-																								const result = half(130);
-
-																								console.log(`130の半分は${result}です`);		//結果：130の半分は65です
+					const result = half(130);
+					console.log(`130の半分は${result}です`);	//結果：130の半分は65です
 																								
-																																															
-									様々な戻り値
+		様々な戻り値
 									
-																	戻り値も引数と同様に、様々な値を用いることができます。
-																	例えば、if文で使うような条件式をreturnすると、その条件式の結果として得られる真偽値（trueまたはfalse）を返すことができます。
+			戻り値も引数と同様に、様々な値を用いることができます。
+			例えば、if文で使うような条件式をreturnすると、その条件式の結果として得られる真偽値（trueまたはfalse）を返すことができます。
 																	
-																																	
-																								const check = (number) => {
-																								  return number % 2 ===0;
-																								};
+																											const check = (number) => {
+					 return number % 2 ===0;
+					};
 
-																								console.log(check(6));							//結果：true
-																								console.log(check(7));							//結果：false
+					console.log(check(6));				//結果：true
+					console.log(check(7));				//結果：false
 																								
-																																															
-									returnによる処理の終了
-									
-																	returnは、戻り値を返すだけでなく、関数の処理を終了させる性質も持っています。
-																	よって、returnの後にある関数内の処理は実行されませんので注意しましょう。
-																	
-																																	
-																								const check = (number) => {
-																								  return number % 3 === 0;
-																								  
-																								};
 
-																								if (check(123)) {
-																								  console.log("3の倍数です");
-																								} else {
-																								  console.log("3の倍数ではありません");
-																								}													//結果：3の倍数です
-																								
-																																																
-									スコープ 
+		returnによる処理の終了
 									
-																	関数の引数や、関数内で定義した定数や変数は、その関数の中でしか使うことができません。
-																	このようなそれぞれの定数や変数の使用できる範囲のことをスコープと呼びます。(関数だけでなく、ifやwhileも同様)
+			returnは、戻り値を返すだけでなく、関数の処理を終了させる性質も持っています。
+			よって、returnの後にある関数内の処理は実行されませんので注意しましょう。
 																	
-																	一方、関数の外で定義した定数や変数は、関数の中でも使うことができます。
+																											const check = (number) => {
+					return number % 3 === 0;
+					};
+
+					if (check(123)) {
+					console.log("3の倍数です");
+					} else {
+					 console.log("3の倍数ではありません");
+					}					//結果：3の倍数です
+																								
+
+		スコープ 
+									
+			関数の引数や、関数内で定義した定数や変数は、その関数の中でしか使うことができません。
+			このようなそれぞれの定数や変数の使用できる範囲のことをスコープと呼びます。(関数だけでなく、ifやwhileも同様)
 																	
+			一方、関数の外で定義した定数や変数は、関数の中でも使うことができます。
 																	
-																						例１
+					例１
 																						
-																								const name = "にんじゃわんこ";
+					const name = "にんじゃわんこ";
+					
+					const introduce = (name) => {
+					console.log(`わたしは${name}です`);
+					};
 
-																								const introduce = (name) => {
-						
-																								   console.log(`わたしは${name}です`);
-																								  
-																								};
+					introduce("ひつじ仙人");
+					console.log(name);			//結果：わたしはひつじ仙人です																			にんじゃわんこ
+																											例２
+																											const number1 = 103;
+					const number2 = 72;
+					const number3 = 189;
 
-																								introduce("ひつじ仙人");
+					const getMax = (a, b, c)=>{
+					 let max  = a;				//関数内のmax変数
+																											 if(max < b){
+					 max = b;
+					}
+																											 if(max < c){
+					max = c;
+					 }
+																											 return max;
+					}
 
-																								console.log(name);									//結果：わたしはひつじ仙人です
-																																							            にんじゃわんこ
-																																							
-																																																																										
-																						例２
-																																						
-																								const number1 = 103;
-																								const number2 = 72;
-																								const number3 = 189;
-
-																								const getMax = (a, b, c)=>{
-																								  let max  = a;										//関数内のmax変数
-																								  
-																								  if(max < b){
-																								    max = b;
-																								  }
-																								  
-																								  if(max < c){
-																								    max = c;
-																								  }
-																								  
-																								  return max;
-																								}
-
-																								 const max = getMax(number1, number2, number3);		//関数外のmax変数
-																								console.log(`最大値は${max}です`);					//最大値は189です
+					const max = getMax(number1, number2, number3);		//関数外のmax変数
+					console.log(`最大値は${max}です`);			   //最大値は189です
 																								
 																																																
-									オブジェクトと関数
+		オブジェクトと関数
 									
-																	オブジェクトの「値」の部分には、関数を用いることもできます。
-																	その関数を呼び出すには、「定数名.プロパティ名()」とします。プロパティ名の後ろの()を忘れないようにしましょう。
+			オブジェクトの「値」の部分には、関数を用いることもできます。
+			その関数を呼び出すには、「定数名.プロパティ名()」とします。プロパティ名の後ろの()を忘れないようにしましょう。
 																	
 																	
-																	
-																								const animal = {
-																								  name: "レオ",
-																								  age: 3,
-																								  greet: () => {
-																								    console.log("こんにちは");
-																								  }
-																								};
+					const animal = {
+					 name: "レオ",
+					 age: 3,
+					 greet: () => {
+					console.log("こんにちは");
+					}
+					};
 
-																								console.log(animal.name);							//結果：レオ
-
-																								animal.greet();										//結果：こんにちは
-																								
-																																															
-																					
+					console.log(animal.name);			//レオ
+					animal.greet();					//こんにちは
+																																									
 ・クラス
 
-			効率よくオブジェクトを作成していくための方法として、最初に「設計図」を用意する方法があります。
-			例えばユーザーのデータをいくつも作成する場合、最初に「ユーザーを生成するための設計図」を用意し、
-			その設計図をもとにユーザーのデータを生成していく、といったことができます。
+	効率よくオブジェクトを作成していくための方法として、最初に「設計図」を用意する方法があります。
+	例えばユーザーのデータをいくつも作成する場合、最初に「ユーザーを生成するための設計図」を用意し、
+	その設計図をもとにユーザーのデータを生成していく、といったことができます。
 			
-			「設計図」のことをJavaScriptでは「クラス」と呼びます。
-			「class クラス名」とすることで新しくクラスを用意できます。
-			なお、クラス名は基本的に大文字から始めるようにしましょう。
+	「設計図」のことをJavaScriptでは「クラス」と呼びます。
+	「class クラス名」とすることで新しくクラスを用意できます。
+	なお、クラス名は基本的に大文字から始めるようにしましょう。
 			
 						
-						class Animal {
+			class Animal {
   
-						}
+			}
 						
 											
-									インスタンスの生成
+		インスタンスの生成
 									
-																	オブジェクトを生成するための設計図を用意できたので、その設計図から実際にオブジェクトを生成してみましょう。
-																	クラスからオブジェクトを生成するには、図のように「new クラス名()」とします。
-																	クラスから生成したオブジェクトは特別にインスタンスと呼びます。
-                                  また、AnimalクラスのインスタンスをAnimalインスタンスと呼びます。
+			オブジェクトを生成するための設計図を用意できたので、その設計図から実際にオブジェクトを生成してみましょう。
+			クラスからオブジェクトを生成するには、図のように「new クラス名()」とします。
+			クラスから生成したオブジェクトは特別にインスタンスと呼びます。
+                        また、AnimalクラスのインスタンスをAnimalインスタンスと呼びます。
 																	
-																																		
-																								class Animal {
-																								
-																								}
+																											class Animal {
+																											}
 
-																								const animal = new Animal();
-																								console.log(animal);								//結果：Animal{}
+					const animal = new Animal();																			console.log(animal);				//結果：Animal{}
 																	
-																	
-																	
-									コンストラクタ
+																		
+		コンストラクタ
 									
-																	クラスにはコンストラクタと呼ばれる機能が用意されています。
-																	コンストラクタはインスタンスを生成するときに実行したい処理や設定を追加するための機能です。
-																	まず、クラスの中括弧 { } 内に「constructor() { }」と記述します。
+			クラスにはコンストラクタと呼ばれる機能が用意されています。
+			コンストラクタはインスタンスを生成するときに実行したい処理や設定を追加するための機能です。
+			まず、クラスの中括弧 { } 内に「constructor() { }」と記述します。
 																	
-																	コンストラクタの中には処理を記述することができます。
-																	ここに書いた処理はインスタンスが生成された直後に実行されます。
-																	大切なのは、インスタンスごとに毎回実行されるということです。
+			コンストラクタの中には処理を記述することができます。
+			ここに書いた処理はインスタンスが生成された直後に実行されます。
+			大切なのは、インスタンスごとに毎回実行されるということです。
 																	
 																	
-																	
-																								class Animal {
+					class Animal {
+					  constructor(){
+					  console.log("インスタンスを生成しました");
+					  }
+					}
+
+					const animal = new Animal();
 																								
-																								  constructor(){
-																								    console.log("インスタンスを生成しました");
-																								  }
-																								}
-
-																								const animal = new Animal();
-																								
-																								
-																								
-																				プロパティと値を追加する
-																				
-																												コンストラクタの中で、生成したインスタンスに関する情報を追加してみましょう。
-																												コンストラクタの中で「this.プロパティ = 値」とすることで、生成されたインスタンスにプロパティと値を追加することができます。
-																												
-																												インスタンスとはオブジェクトですので、コンストラクタの中で追加した値は、
-                                                        「インスタンス.プロパティ」とすることでクラスの外で使用できます。
-																												
-																																																								
-																																			class Animal {
-																																			  constructor() {
-																																			    this.name = "レオ";																																		    
-																																			    this.age = 3;
-																																			  }
-																																			}
-
-																																			const animal = new Animal();
-																																			console.log(`名前:${animal.name}`);
-																																			console.log(`年齢:${animal.age}`);
-																																			
-																																																										
-																				コンストラクタの引数
-																				
-																												コンストラクタでも引数を受け取ることが可能です。
-																												「constructor」の後の括弧「( )」内に引数名を記述することで、その引数をコンストラクタの処理内で使用できます。
-																												コンストラクタに引数として値を渡すには、「new クラス名()」の括弧「( )」内に値を追加します。
-																																																								
-																												
-																																			class Animal {
-																																			  constructor(name, age) {
-																																			    this.name = name;  
-																																			    this.age = age;
-																																			  }
-																																			}
-
-																																			const animal = new Animal("モカ", 8);
-
-																																			console.log(`名前: ${animal.name}`);
-																																			console.log(`年齢: ${animal.age}`);
-																																			
-																																																																					
-									メソッド
+		プロパティと値を追加する
+																									コンストラクタの中で、生成したインスタンスに関する情報を追加してみましょう。														コンストラクタの中で「this.プロパティ = 値」とすることで、生成されたインスタンスにプロパティと値を追加することができます。
+																									インスタンスとはオブジェクトですので、コンストラクタの中で追加した値は、
+                        「インスタンス.プロパティ」とすることでクラスの外で使用できます。
+																																																																							class Animal {																					constructor() {																						this.name = "レオ";																			this.age = 3;																					}																					}
+																											const animal = new Animal();																			console.log(`名前:${animal.name}`);																	console.log(`年齢:${animal.age}`);
+																																											
+		コンストラクタの引数
+																									コンストラクタでも引数を受け取ることが可能です。																「constructor」の後の括弧「( )」内に引数名を記述することで、その引数をコンストラクタの処理内で使用できます。										コンストラクタに引数として値を渡すには、「new クラス名()」の括弧「( )」内に値を追加します。
+																																						
+																											class Animal {																					constructor(name, age) {																			 this.name = name;  																				 this.age = age;																				 }
+					}
+					
+					const animal = new Animal("モカ", 8);																	console.log(`名前: ${animal.name}`);																	console.log(`年齢: ${animal.age}`);
+																																					
+		メソッド
 																	
-																	クラスの重要な機能の1つである「メソッド」について学習していきましょう。メソッドとはそのインスタンスの「動作」のようなものです。
-																	「名前」や「年齢」などの情報はプロパティで追加したのに対して、メソッドは「挨拶をする」「値を計算する」などの処理のまとまりを表します。
+			クラスの重要な機能の1つである「メソッド」について学習していきましょう。メソッドとはそのインスタンスの「動作」のようなものです。
+			「名前」や「年齢」などの情報はプロパティで追加したのに対して、メソッドは「挨拶をする」「値を計算する」などの処理のまとまりを表します。
 																	
-																	メソッドはクラスの中で定義します。「メソッド名() { }」とすることでメソッドは定義できます。
-																	メソッドは関数と似たようなもので、中括弧「{ }」の中にそのメソッドで行いたい処理を記述します。
+			メソッドはクラスの中で定義します。「メソッド名() { }」とすることでメソッドは定義できます。
+			メソッドは関数と似たようなもので、中括弧「{ }」の中にそのメソッドで行いたい処理を記述します。
 																	
-																	メソッドは、そのクラスから生成したインスタンスに対して呼び出します。
-																	「インスタンス.メソッド名()」とすることでそのメソッドを呼び出し、処理を実行することができます。	
+			メソッドは、そのクラスから生成したインスタンスに対して呼び出します。
+			「インスタンス.メソッド名()」とすることでそのメソッドを呼び出し、処理を実行することができます。	
 																	
-																	
-																	
-																								class Animal {
-																								  constructor(name, age) {
-																								    this.name = name;
-																								    this.age = age;
-																								  }
-																								  
-																								  greet(){
-																								    console.log("こんにちは");
-																								  }																							  
-																								}
+																											class Animal {
+																											  constructor(name, age) {																				this.name = name;
+						this.age = age;																				  }
+																											  greet(){																					    console.log("こんにちは");																		 }																						}
 
-																								const animal = new Animal("レオ", 3);
-
-																								console.log(`名前: ${animal.name}`);
-																								console.log(`年齢: ${animal.age}`);
-
-																								animal.greet();	
-																								
-																																																
-																	では次に、「name」の値を用いて「名前は〇〇です」と出力するメソッドを作成してみましょう。
-																	メソッド内でインスタンスの値を使用するには、「this」という特殊な値を用いて、「this.プロパティ名」とします。
-																	
-																																	
-																								class Animal {
-																							  constructor(name, age) {
-																							    this.name = name;
-																							    this.age = age;
-																							  }
-																							  
-																							  greet() {
-																							    console.log("こんにちは");
-																							  }
-																							  
-																							  info(){
-																							    console.log(`名前は${this.name}です`);
-																							    console.log(`${this.age}歳です`);
-																							  }																							  
-																							}
-
-																							const animal = new Animal("レオ", 3);
-																							animal.greet();
-																							animal.info();
-																																																																			
-                                                          //出力結果
-                                                          こんにちは
-                                                          名前はレオです
-                                                          3歳です
+																											const animal = new Animal("レオ", 3);																	console.log(`名前: ${animal.name}`);																	console.log(`年齢: ${animal.age}`);																	animal.greet();	
+																									では次に、「name」の値を用いて「名前は〇〇です」と出力するメソッドを作成してみましょう。
+			メソッド内でインスタンスの値を使用するには、「this」という特殊な値を用いて、「this.プロパティ名」とします。
+																											class Animal {	
+																											constructor(name, age) {																		    	this.name = name;																	    			this.age = age;																			 		 }
+																											greet() {
+					console.log("こんにちは");
+					}
+																											info(){																				    	 	console.log(`名前は${this.name}です`);																	console.log(`${this.age}歳です`);																		}
+																											}
+																											
+					const animal = new Animal("レオ", 3);																	animal.greet();																					animal.info();
+																						
+                                                          	//出力結果
+                                                          	こんにちは
+                                                          	名前はレオです
+                                                          	3歳です
 																				
 																				
 																				
