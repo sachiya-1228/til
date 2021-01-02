@@ -164,20 +164,27 @@
 			while文を用いる場合には、条件式の部分がいつかはfalseになり、繰り返し処理が終わる必要があることに注意してください。
 			※無限ループになってしまうため																
 			例えば、number < 100が条件式として処理の最後にnuber += 1を入れてあげることで，101になったらループから抜けることができる。
-								
-								
-						let number = 1;
-																												while(number <=100){																				console.log(number);																				number += 1;																					}
-					
-					
+			
+			
+					let number = 1;
+
+					while(number <=100){
+					console.log(number);
+					number += 1;
+					}
+
+
 		for文の書き方
 									
 			for文では「変数の定義」「条件式」「変数の更新」の3つを括弧の中に書きます。
 			「number += 1」は「number ++」のように省略して書くことができます。
 			また、引き算の場合にも、「number -= 1」を「number --」と省略することができます。
-																																																	for( let number = 1; number <=100; number++){																	 console.log(number);																				}
-																	
-																	
+			
+			
+					for( let number = 1; number <=100; number++){
+					console.log(number);
+					}
+
 
 ・配列
 
@@ -197,17 +204,24 @@
 																	
 			配列の要素にはそれぞれインデックス番号という番号がついています。
 			インデックス番号は、0から始まることに注意しましょう。（インデックス＝添え字）
-																	
-																										const animals = ["dog", "cat", "sheep"];																	console.log(animals[0]);																			console.log(animals[2]);
-																													
+			
+			
+					const animals = ["dog", "cat", "sheep"];
+					console.log(animals[0]);
+					console.log(animals[2]);
+						
+						
 		配列の要素数を取得
 									
 			配列.lengthとすることで、配列の要素数を取得できます。
 			配列の要素数が変わっても問題なく繰り返すことができるので便利です。
-																	
-																										for (let i = 0; i < animals.length; i++) {																		console.log(animals[i]);																		}
-																						
-																					
+
+
+					for (let i = 0; i < animals.length; i++) {
+					console.log(animals[i]);
+					}
+				
+				
 ・オブジェクト
 
 	オブジェクトは配列と同じく複数のデータをまとめて管理するのに用いられます。
@@ -234,25 +248,30 @@
 		オブジェクトの値を更新する
 									
 			「オブジェクト.プロパティ名 = 新しい値」とすることでオブジェクトの値を更新することができます。
-																	
-																											const character = {name: "にんじゃわんこ", age: 14};	
-																											console.log(character.name);				//結果：にんじゃわんこ
-					character.age = 20;																				console.log(character);					//結果：{name: "にんじゃわんこ", age: 20}
-																		
-									
+			
+			
+					const character = {name: "にんじゃわんこ", age: 14}	
+					console.log(character.name);				//結果：にんじゃわんこ
+					character.age = 20;
+					console.log(character);					//結果：{name: "にんじゃわんこ", age: 20}
+
+				
 		オブジェクトを要素に持つ配列
 									
 			配列の要素には、文字列や数値だけでなく、オブジェクトも使うことができます。
 			コードが横に長くなることを防ぐために、要素ごとに改行することがよくありますので、覚えておきましょう。
 																	
 			配列の中のオブジェクトのプロパティの値を取り出すには、「配列[インデックス番号].プロパティ名」と書きます。
-																	
-																											const characters = [																				{name: "にんじゃわんこ", age: 14},																		{name: "ひつじ仙人", age: 1000}
+
+
+					const characters = [
+					{name: "にんじゃわんこ", age: 14},
+					{name: "ひつじ仙人", age: 1000}
 					];
-																											console.log(characters[0]);				//結果：{name: "にんじゃわんこ", age: 14}
+					console.log(characters[0]);				//結果：{name: "にんじゃわんこ", age: 14}
 					console.log(characters[1].name);			//結果：ひつじ仙人
-									
-																		
+				
+				
 		存在しない要素を取得する
 									
 			配列の存在しないインデックス番号の要素や、オブジェクトの存在しないプロパティの要素を取得しようとすると、undefined と出力されます。
@@ -261,7 +280,10 @@
 			下記の配列[3]はageがないので、出力結果がundefinedになってしまう。
 			だから、if文でundefinedのものとそれ以外で分岐させる。
 																	
-																											const characters = [																				{name: "にんじゃわんこ", age: 14},																		{name: "ひつじ仙人", age: 100},
+
+					const characters = [
+					{name: "にんじゃわんこ", age: 14},
+					{name: "ひつじ仙人", age: 100},
 					{name: "ベイビーわんこ", age: 5},
 					{name: "とりずきん"}
 					];
@@ -270,13 +292,14 @@
 					console.log("--------------------");
 					const character = characters[i];
 					console.log(`名前は${character.name}です`);
-																												if(character.age === undefined){																		console.log("年齢は秘密です");
+						if(character.age === undefined){
+						console.log("年齢は秘密です");
 						}else{
 						console.log(`${character.age}歳です`);
 					 	}
-					}
-																										
-									
+					}																										
+					
+					
 		複雑なオブジェクトを扱う
 									
 			オブジェクトの値の部分には、文字列や数値だけでなく、オブジェクトを用いることができます。
